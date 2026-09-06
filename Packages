@@ -1,0 +1,167 @@
+Package: transmission-daemon
+Version: 4.1.3-2
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: net
+Priority: optional
+Description: Transmission BitTorrent daemon (statik derlenmis)
+ opendreambox 2.6 (Yocto pyro) OpenSSL 1.0.2, libevent 2.0 ve libstdc++
+ 6.0.22 tasir; Transmission 4 ise OpenSSL >= 1.1, libevent >= 2.1 ve C++17
+ ister. Bu yuzden binary musl uzerinde TAM STATIK derlenmistir ve kutunun
+ kutuphanelerinden hicbirine baglanmaz.
+ .
+ Icerik: transmission-daemon, transmission-remote ve yardimci araclar ile
+ web arayuzu (http://<kutu>:9091/transmission/).
+ .
+ Kurulumdan sonra systemd servisi etkinlestirilir ve baslatilir.
+ Yapilandirma: /root/.transmission-daemon/settings.json
+Filename: ./transmission-daemon_4.1.3-2_arm64.deb
+Size: 24601200
+MD5sum: 96c4c5a3ef3926427adde0e8cbf03f44
+SHA1: 4b0dfc70e1245793436d4e6650234eeb5cfd0f0f
+SHA256: 279c13a4adde12965f37829d097a6d3e21e5984a2b45578fbaff3cd0f947ccb2
+
+Package: enigma2-plugin-extensions-transmission4
+Version: 1.3
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Recommends: transmission-daemon
+Description: Transmission 4.x icin enigma2 istemcisi
+ Torrent listesi, ekleme (magnet / .torrent), detay ve dosya secimi,
+ izleme klasoru ve indirme bitince bildirim. Daemon ile yalnizca RPC
+ uzerinden konusur; daemon ayni kutuda ya da agdaki baska bir makinede
+ olabilir.
+ .
+ Protokol otomatik secilir: Transmission 4.1 ve sonrasi ile JSON-RPC 2.0,
+ daha eskisiyle (3.00, 4.0.x) eski "bespoke" protokol konusulur. Boylece
+ hem guncel hem eski daemon'larla calisir.
+ .
+ Tum ag istekleri twisted uzerinden yapilir; enigma2'nin ana dongusu hicbir
+ zaman bloke olmaz.
+Filename: ./enigma2-plugin-extensions-transmission4_1.3_all.deb
+Size: 28084
+MD5sum: 403396453767712bbe1577b6f65ca9d6
+SHA1: e971677ee926eaa6079719388ce78476edd31b5e
+SHA256: 0203b50e26554b508d89c05e2db8415755f63755bc062dfec5d16e2a0ed25c64
+
+Package: python-coherence
+Multi-Arch: same
+Version: 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2
+Description: Python UPnP framework (SSDP dayaniklilik yamalari)
+ Python UPnP framework.
+ .
+ Bu paket upstream 0.8.1+git0+f39fbd2bd0-r0.0 ile aynidir; yalnizca
+ msearch.py, ssdp.py ve event.py icindeki baslik okumalari
+ dogrulanir. Upstream usn, st, nt, nts, location, cache-control ve
+ sid basliklarini sorgusuz okur; eksik baslikli bir paket KeyError
+ firlatir ve twisted her pakette ~15 satirlik yigin izini enigma2
+ gunlugune basar. journald ve syslogd bunu isleyerek CPU yer, OSD
+ kasar. Ayrica ssdp.py bozuk bir datagram'da pdb.set_trace()
+ cagiriyordu; bassiz bir surecte bu calisamaz.
+ .
+ Eksiksiz paketler tam olarak eskisi gibi islenir.
+Section: devel/python
+Priority: optional
+Maintainer: OE-Core Developers <openembedded-core@lists.openembedded.org>
+Architecture: arm64
+OE: python-coherence
+PackageArch: aarch64
+Homepage: http://coherence.beebits.net/
+Depends: python-twisted-web, python-xmlrpc
+Filename: ./python-coherence_0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2_arm64.deb
+Size: 479640
+MD5sum: 57819e00033240f3576b4837ca36749c
+SHA1: d8a0f8ceae4bc1cc2f8fb597a9b413685bd45fac
+SHA256: 43fa2066e0aecc65cee60561a2ff94adae84d0b4c94563166c487df50d789d9e
+
+Package: enigma2-plugin-extensions-eitextendeditems
+Version: 1.2
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Description: EPG ek bilgileri (Actors / Directors / Production Year)
+ DreamOS'un EIT ayristiricisi extended_event_descriptor icindeki item
+ listesini kullanmaz, bu yuzden Actors / Directors / Production Year /
+ Country gibi alanlar EPG'de gorunmez. Bu eklenti EIT'i kendi section
+ filtresiyle okuyup bu alanlari EPG ekranlarina ekler. Sistem dosyalarina
+ dokunmaz; ilgili siniflari calisma zamaninda sarmalar.
+Filename: ./enigma2-plugin-extensions-eitextendeditems_1.2_all.deb
+Size: 16472
+MD5sum: 292ccaeb628b03f2b8ae94ff9446506c
+SHA1: cc0c63c50e9ab48250e55a28c7d1fdb5aa574f1b
+SHA256: 2d472ff9ee2b1c11e737576596f97d805b4535673fc7deb0437e830ac3252663
+
+Package: enigma2-plugin-extensions-markernumbering
+Version: 1.3r-2
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Description: Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi)
+ DreamOS'ta kanal listesindeki markerlar hicbir zaman kanal numarasi
+ tuketmez. OpenATV / OpenPLi gibi diger enigma2 imajlarinda ise ADSIZ
+ marker bir numarayi rezerve eder (yer tutucu), ADLI marker (bolum
+ basligi) etmez. Bu eklenti ayni davranisi DreamOS'a kazandirir: liste
+ numaralari, numara ile zaplama ve buke numara ofseti duzeltilir; yer
+ tutucu satirlari listede gizlenir. Ayrica DreamOS'ta hic bulunmayan "her
+ bukede 1'den basla" secenegi eklenir.
+ Sistem dosyalarina dokunmaz; ilgili siniflari calisma zamaninda sarmalar.
+Filename: ./enigma2-plugin-extensions-markernumbering_1.3r-2_all.deb
+Size: 19364
+MD5sum: 2bd67efa798e28a968486f04a4687730
+SHA1: 61382e48f67cc53e8212e1a13938eb4ea9362b25
+SHA256: 4694508eaaa35cbc4e9f09e18d22237396643d3827319eea81165d5697974a00
+
+Package: enigma2-plugin-extensions-radiovideo
+Version: 1.5
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Description: Radyo kanallarinda sabit resim yerine video oynat
+ Radyo kanallarinda ekranda yalnizca skinin radio.mvi resmi gorunur. Bu
+ eklenti onun yerine sabit diskteki bir videoyu oynatir; ses radyo
+ kanalindan gelmeye devam eder.
+ Tek video decoderli kutularda (or. Dreambox Two) enigma2nin PiP yolu
+ kapalidir, ancak radyo calarken video decoder bostadir. Eklenti videoyu
+ ayri bir gstreamer sureciyle dogrudan decodera basar:
+ gst-launch-1.0 playbin uri=file://... video-sink=dreamvideosink
+ audio-sink=fakesink
+ Video bittiginde basa sarilir. Oynatilacak dosya veya klasor eklenti
+ menusunden secilir; pakette varsayilan bir video gelir.
+Filename: ./enigma2-plugin-extensions-radiovideo_1.5_all.deb
+Size: 3936168
+MD5sum: e3e4330c8ffede61fe4655e7521228ce
+SHA1: 1bdfb00b128ad18a9d835d7163dded6606351ae9
+SHA256: c6ab5e9f6132d288e6e6fd75a3b4ca2af13f7dc2fd09c629df829f465d95860f
+
+Package: enigma2-plugin-extensions-zapfollow
+Version: 1.1r-3
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Description: Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin
+ enigma2'nin stream sunucusunda (port 8001) statik bir uc yoktur: URL'de
+ hangi servis referansi yaziyorsa o yayinlanir. Bu yuzden agdan izleyen
+ kisi tek bir kanala kilitlenir ve o kanal bir tuner tuttugu icin kutudan
+ baska transpondere zap yapmak "bosta tuner yok" ile geri cevrilir. Bu
+ eklenti kutuda sabit bir uc acar (http://<kutu>:8002/live). Izleyicinin
+ baglantisi hic kopmaz; kutuda kanal degistirildiginde once upstream
+ birakilir (tuner serbest kalir), zap yapilir, ardindan yeni kanala
+ yeniden baglanilir -- izleyen kisi de otomatik olarak yeni kanala gecer.
+ Sistem dosyalarina dokunmaz; Navigation.playService calisma zamaninda
+ sarmalanir ve eklenti kapatilinca geri alinir.
+Filename: ./enigma2-plugin-extensions-zapfollow_1.1r-3_all.deb
+Size: 17992
+MD5sum: 84570c76ede3f5cca3fa2eb3dce48389
+SHA1: ec294bc5cf414fb569ea015f226e3b125fd7bb3a
+SHA256: 9e6b2cd172124c602bb05ad0570c38cfe0354e4c60d77ec4e9c8c529a0ccd042
