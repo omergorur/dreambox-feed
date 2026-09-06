@@ -42,12 +42,12 @@ adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan gir
 | Paket | Sürüm | Mimari | Boyut | Açıklama |
 |---|---|---|---|---|
 | `transmission-daemon` | 4.1.3-3 | arm64 | 23.5 MB | Transmission BitTorrent daemon (statik derlenmis) |
-| `enigma2-plugin-extensions-transmission4` | 1.4 | all | 28 KB | Transmission 4.x icin enigma2 istemcisi |
+| `enigma2-plugin-extensions-transmission4` | 1.5 | all | 28 KB | Transmission 4.x icin enigma2 istemcisi |
 | `python-coherence` | 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2 | arm64 | 468 KB | Python UPnP framework (SSDP dayaniklilik yamalari) |
-| `enigma2-plugin-extensions-eitextendeditems` | 1.3 | all | 17 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
-| `enigma2-plugin-extensions-markernumbering` | 1.4 | all | 19 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
-| `enigma2-plugin-extensions-radiovideo` | 1.6 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
-| `enigma2-plugin-extensions-zapfollow` | 1.2 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
+| `enigma2-plugin-extensions-eitextendeditems` | 1.4 | all | 17 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
+| `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
+| `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
+| `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
 
 ## Notlar
 
