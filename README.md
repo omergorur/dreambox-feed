@@ -41,7 +41,7 @@ adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan gir
 
 | Paket | Sürüm | Mimari | Boyut | Açıklama |
 |---|---|---|---|---|
-| `transmission-daemon` | 4.1.3-2 | arm64 | 23.5 MB | Transmission BitTorrent daemon (statik derlenmis) |
+| `transmission-daemon` | 4.1.3-3 | arm64 | 23.5 MB | Transmission BitTorrent daemon (statik derlenmis) |
 | `enigma2-plugin-extensions-transmission4` | 1.3 | all | 27 KB | Transmission 4.x icin enigma2 istemcisi |
 | `python-coherence` | 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2 | arm64 | 468 KB | Python UPnP framework (SSDP dayaniklilik yamalari) |
 | `enigma2-plugin-extensions-eitextendeditems` | 1.2 | all | 16 KB | EPG ek bilgileri (Actors / Directors / Production Year) |

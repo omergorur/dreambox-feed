@@ -1,5 +1,5 @@
 Package: transmission-daemon
-Version: 4.1.3-2
+Version: 4.1.3-3
 Architecture: arm64
 Maintainer: omergorur <omergorur@gmail.com>
 Section: net
@@ -13,13 +13,20 @@ Description: Transmission BitTorrent daemon (statik derlenmis)
  Icerik: transmission-daemon, transmission-remote ve yardimci araclar ile
  web arayuzu (http://<kutu>:9091/transmission/).
  .
- Kurulumdan sonra systemd servisi etkinlestirilir ve baslatilir.
+ Kurulumda indirme yeri otomatik secilir: /media/* ve /data altinda, kok
+ dosya sistemininkinden FARKLI bir aygitta duran ve en az 1 GB bos alani
+ olan yerlerden en genisi. Kok dosya sistemine indirme dizini ACILMAZ --
+ bu kutularda kok fs 1-2 GB'dir ve dolmasi enigma2'yi calisamaz hale
+ getirir. Uygun yer bulunamazsa yapilandirma yazilmaz, servis
+ baslatilmaz ve ne yapilacagi ekrana yazilir.
+ .
+ Mevcut settings.json ve torrent dosyalarina dokunulmaz.
  Yapilandirma: /root/.transmission-daemon/settings.json
-Filename: ./transmission-daemon_4.1.3-2_arm64.deb
-Size: 24601200
-MD5sum: 96c4c5a3ef3926427adde0e8cbf03f44
-SHA1: 4b0dfc70e1245793436d4e6650234eeb5cfd0f0f
-SHA256: 279c13a4adde12965f37829d097a6d3e21e5984a2b45578fbaff3cd0f947ccb2
+Filename: ./transmission-daemon_4.1.3-3_arm64.deb
+Size: 24602258
+MD5sum: 34020f9cbe9d4d4f11c32a64faa6897e
+SHA1: bca7292f863015189c9b85b4a04560009d8a7b83
+SHA256: f4b559e4111837d85e34dfd9617a9f6372e8276b9576b3038ccf469314703eae
 
 Package: enigma2-plugin-extensions-transmission4
 Version: 1.3
