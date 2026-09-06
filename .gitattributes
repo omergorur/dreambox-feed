@@ -1,0 +1,4 @@
+# APT indeksi ve paketler bayt bayt korunmali; satir sonu donusumu yok
+* -text
+*.deb binary
+Packages.gz binary
