@@ -15,13 +15,27 @@ apt-get update
 Sonra istediğiniz paketi kurun:
 
 ```sh
-apt-get install enigma2-plugin-extensions-transmission4
+apt-get install transmission-daemon enigma2-plugin-extensions-transmission4
 killall -9 enigma2
 ```
 
 Eklentiler `killall -9 enigma2` sonrası devreye girer; `transmission-daemon`
 ve `python-coherence` için buna gerek yoktur (ilki systemd servisini kendi
 başlatır, ikincisi enigma2 yeniden başlayınca etkinleşir).
+
+### Neden iki paket birden?
+
+`enigma2-plugin-extensions-transmission4` daemon'ı `Recommends` olarak
+işaretler, `Depends` olarak değil — çünkü eklenti ağdaki **başka bir
+makinedeki** Transmission'a da bağlanabilir (NAS, PC). Çoğu kutuda
+`APT::Install-Recommends "1"` olduğu için daemon kendiliğinden gelir, ama
+bu ayar kapalıysa gelmez ve eklenti "Bağlantı yok" der. Yukarıdaki komut
+ikisini birden istediği için her koşulda çalışır.
+
+Kutunuzdaki ayarı görmek için: `apt-config dump | grep Recommends`
+
+Daemon zaten ağdaki başka bir makinedeyse yalnızca eklentiyi kurun ve
+adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan girin.
 
 ## Paketler
 
