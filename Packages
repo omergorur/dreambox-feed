@@ -221,3 +221,81 @@ Size: 5462
 MD5sum: 92246a655cbc9c997e9654e9e9cd7e70
 SHA1: f427cb503d3b425d98d155eba92e3f6122a9f8f2
 SHA256: b3bcacd0541d958dd4b8ce1d02afc87b0b8b284cde67af75f774e79c93c8e1b2
+
+Package: kodi-hwdec-inputstream-adaptive
+Version: 2.3.22
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: kodi-hwdec, libexpat1
+Description: DASH ve HLS akis cozucusu (inputstream.adaptive)
+ Uyarlanabilir bit hizli akislari (MPEG-DASH, HLS, Smooth Streaming)
+ cozer. Cogu guncel video eklentisi bu olmadan calismaz.
+ .
+ Widevine DRM korumali servisler (Netflix, Disney+ vb.) bu kutuda
+ calismaz: aarch64 icin Widevine CDM yok. Sifresiz DASH/HLS sorunsuz.
+ .
+ Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
+ kurulumuna dokunmaz.
+Filename: ./kodi-hwdec-inputstream-adaptive_2.3.22_arm64.deb
+Size: 1099970
+MD5sum: 320cb029d575b7423cf06678ef424041
+SHA1: 45a23224579515b45ecd99bda47994931d475e43
+SHA256: 6629e625be2aecab26f64d51533c642d16c80d33253e9a61ade9ed16a4bd338e
+
+Package: kodi-hwdec-pvr-hts
+Version: 4.4.3
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: kodi-hwdec
+Description: Tvheadend PVR istemcisi (pvr.hts)
+ Agdaki bir Tvheadend sunucusunun kanallarini, EPG'sini ve
+ kayitlarini Kodi'ye getirir.
+ .
+ Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
+ kurulumuna dokunmaz.
+Filename: ./kodi-hwdec-pvr-hts_4.4.3_arm64.deb
+Size: 266786
+MD5sum: 30bd6d6819d927c8d5613f90626ceeec
+SHA1: bfb503d605258e7ac2d275d19d62a42fb6891207
+SHA256: 919ecf5de48675eb27f5793e470d03ac3ee3ae146dcbe44fdf2c3d26496c47b7
+
+Package: kodi-hwdec-pvr-iptvsimple
+Version: 3.5.5
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: kodi-hwdec
+Description: m3u tabanli IPTV istemcisi (pvr.iptvsimple)
+ m3u kanal listesi ve XMLTV EPG kaynagi ile IPTV izlemeyi saglar.
+ .
+ Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
+ kurulumuna dokunmaz.
+Filename: ./kodi-hwdec-pvr-iptvsimple_3.5.5_arm64.deb
+Size: 198594
+MD5sum: 8feeaf01bc468f7f038133596f851293
+SHA1: 4fd6cb6d77b46cff168298d58e1bea12950284f0
+SHA256: a03c63c1f4ce0a3b767c72680145cc3dc332032347cd1753cea373094a62879e
+
+Package: kodi-hwdec-pvr-vuplus
+Version: 3.15.4
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: kodi-hwdec
+Description: enigma2 / Vu+ PVR istemcisi (pvr.vuplus)
+ enigma2 tabanli bir kutunun (bu kutu dahil) web arayuzu ve stream
+ uclarini kullanarak kanallari ve kayitlari Kodi'ye getirir.
+ .
+ Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
+ kurulumuna dokunmaz.
+Filename: ./kodi-hwdec-pvr-vuplus_3.15.4_arm64.deb
+Size: 363606
+MD5sum: c479ea2fce1a8c7cf13d150ca85f9590
+SHA1: 7879eb13caf8d4439ef378499de18955d345fb1c
+SHA256: 8db44ab6759938300e84fc0b18b81361d5cf9dd4ba5c0882656c6750c3a3a8af

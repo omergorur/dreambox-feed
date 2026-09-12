@@ -66,6 +66,24 @@ değiştirin:
 KODI_HWDEC_DATA=/media/hdd/kodi-hwdec
 ```
 
+#### Eklentiler
+
+Kodi'nin ikili eklentileri ayrı paketlerdir; yalnızca kullanacaklarınızı kurun:
+
+```sh
+apt-get install kodi-hwdec-inputstream-adaptive   # DASH / HLS akışları
+apt-get install kodi-hwdec-pvr-hts                # Tvheadend
+apt-get install kodi-hwdec-pvr-iptvsimple         # m3u + XMLTV
+apt-get install kodi-hwdec-pvr-vuplus             # enigma2 / Vu+ stream ucu
+```
+
+Bunlar `kodi-hwdec` ağacının içine kurulur ve kaynağından derlenmiştir;
+`libkodiplatform` gibi ek bir depo bağımlılığı getirmezler.
+
+`inputstream.adaptive` Widevine DRM korumalı servislerde (Netflix, Disney+
+vb.) **çalışmaz** — aarch64 için Widevine CDM yoktur. Şifresiz DASH/HLS
+akışlarında sorunsuzdur.
+
 #### Bilinen kusur
 
 **TV'den kaydedilip MKV'ye çevrilmiş yayın dosyalarında** oynatmanın ilk
@@ -100,6 +118,10 @@ kodi-hwdec-restore-av
 | `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
 | `kodi-hwdec` | 1.0 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
 | `enigma2-plugin-extensions-kodihwdec` | 1.0 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
+| `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
+| `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
+| `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
+| `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
 
 ## Notlar
 
