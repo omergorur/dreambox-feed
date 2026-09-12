@@ -37,6 +37,56 @@ Kutunuzdaki ayarı görmek için: `apt-config dump | grep Recommends`
 Daemon zaten ağdaki başka bir makinedeyse yalnızca eklentiyi kurun ve
 adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan girin.
 
+### Donanım çözücü destekli Kodi
+
+```sh
+apt-get install kodi-hwdec enigma2-plugin-extensions-kodihwdec
+killall -9 enigma2
+```
+
+Menüde **Kodi (donanım çözücü)** girişi belirir. Kutunun kendi *Kodi
+MediaCenter* girişi yerinde kalır; ikisi yan yana çalışır, istediğinizi
+kullanırsınız.
+
+Paket kendi kendine yeter: kutunun temel feed'inde bulunmayan dört kütüphane
+(`libinput`, `libevdev`, `mtdev`, `libtinyxml`) paketin içinde gelir ve
+yalnızca bu uygulamaya görünür — sistem kütüphanelerine dokunulmaz, başka bir
+depo eklemeniz gerekmez.
+
+Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC 10-bit ve HDR
+dahil 4K60'a kadar. İşlemci yükü yazılım çözmeye göre onda birine iner.
+Kodi'nin kendi donanım yolları (v4l2m2m, amcodec) bu çekirdekte çalışmaz —
+sürücü çözülen kareyi userspace'e hiç vermez.
+
+Veri dizini varsayılan olarak `/data/kodi-hwdec`. Küçük resim önbelleği
+büyüyebilir; sabit diskiniz varsa `/etc/default/kodi-hwdec` içinden
+değiştirin:
+
+```sh
+KODI_HWDEC_DATA=/media/hdd/kodi-hwdec
+```
+
+#### Bilinen kusur
+
+**TV'den kaydedilip MKV'ye çevrilmiş yayın dosyalarında** oynatmanın ilk
+~10 saniyesi takılır, sonra kendiliğinden düzelir. İleri sarmak da düzeltir.
+Diğer her şey (web indirmeleri, 4K HDR dahil) tam kare hızında, kare
+düşürmeden oynar.
+
+Sebebi ölçüldü: kareler çözme sırasında beslenir ama her birine gösterim
+zaman damgası iliştirilir. Yayın kodlayıcıları derin B-kare piramidi
+kullandığı için bu damgalar sırasız gelir (ölçülen: `0.00, 0.32, 0.16,
+0.08…`) ve görüntü katmanı kareleri "geç kalmış" sayıp atar. Çözümü
+üzerinde çalışılıyor; düzelince yeni sürüm yayınlanacak.
+
+Kodi düzgün kapanamazsa (çökme, elektrik kesintisi) kutu bozuk video ayarları
+ile kalabilir — canlı yayın donar ya da görüntü ekranın dörtte birinde kalır.
+Tek komutla toparlanır:
+
+```sh
+kodi-hwdec-restore-av
+```
+
 ## Paketler
 
 | Paket | Sürüm | Mimari | Boyut | Açıklama |
@@ -48,6 +98,8 @@ adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan gir
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
 | `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
+| `kodi-hwdec` | 1.0 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
+| `enigma2-plugin-extensions-kodihwdec` | 1.0 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
 
 ## Notlar
 

@@ -172,3 +172,52 @@ Size: 19294
 MD5sum: 9e2bdf05a0fddfb135e4e50c732727a6
 SHA1: cb775ac78e78a8a58bbde5c99d1e009587f3a647
 SHA256: fca83a2c33fe3b33990d2899970cffc4246da3161a2acc7ad4cba2205267bf17
+
+Package: kodi-hwdec
+Version: 1.0
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: libc6, libstdc++6, libgcc1, libasound2, bluez5, libdbus-1-3, libudev1, libuuid1, libpython2.7-1.0, libavcodec58, libavfilter7, libavformat58, libavutil56, libswscale5, libswresample3, libpostproc55, libass9, libcdio16, libiso9660-10, libexpat1, libcurl4, libfreetype6, libfribidi0, liblzo2-2, libssl1.0.2, libcrypto1.0.2, libpcrecpp0, libpcre1, libsqlite3-0, libtag1, libz1, meson-mali, libxkbcommon0, glibc-gconv-utf-32, glibc-gconv-utf-16, glibc-gconv-unicode, glibc-gconv-cp1252, glibc-gconv-iso8859-1, glibc-gconv-iso8859-9, glibc-gconv-cp1254
+Description: Donanim video cozucu destekli Kodi 19
+ Kutunun DVB donanim cozucusunu (/dev/dvb/adapter0/video0) kullanan Kodi 19.
+ H.264, HEVC 10-bit ve HDR dahil 4K60'a kadar donanimda cozer; islemci yuku
+ yazilim cozmeye gore onda birine iner.
+ .
+ Kutunun kendi Kodi kurulumuna dokunmaz: /opt/kodi-hwdec altina kurulur ve
+ yan yana calisir. Menu girisi icin
+ enigma2-plugin-extensions-kodihwdec paketini de kurun.
+ .
+ Kodi'nin hazir donanim yollari bu kutuda calismaz -- v4l2m2m surucusu cozulen
+ kareyi userspace'e hic vermez, amcodec ise beslenmez. Bu paket ureticinin
+ kendi oynaticisinin kullandigi DVB cozucu yolunu kullanir.
+ .
+ Kendi kendine yeter: temel opendreambox feed'inde bulunmayan dort kutuphane
+ (libinput, libevdev, mtdev, libtinyxml) ve XKB klavye verisi pakette
+ tasinir; yalnizca bu uygulamaya gorunur. Ucuncu taraf bir depo gerekmez.
+Filename: ./kodi-hwdec_1.0_arm64.deb
+Size: 32166518
+MD5sum: eafd47276996e1a18e26fbdfae1950b7
+SHA1: b784f4428aa8bfae15797c4d6646a7d7422a82c1
+SHA256: 47c73e505cef96f3d89d7055e766326a9cbde4376eca8bb3f80d80b7e4e97989
+
+Package: enigma2-plugin-extensions-kodihwdec
+Version: 1.0
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2, kodi-hwdec
+Description: Donanim cozucu destekli Kodi icin menu girisi
+ Ana menuye ve eklenti menusune "Kodi (donanim cozucu)" girisi ekler.
+ Kutunun kendi "Kodi MediaCenter" girisi yerinde kalir.
+ .
+ Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
+ durdurur ve ALSA HDMI aygitini birakir -- birakilmazsa Kodi hdmidmix
+ aygitini acamaz ve ses cikmaz. Cikista hepsi geri alinir.
+Filename: ./enigma2-plugin-extensions-kodihwdec_1.0_all.deb
+Size: 5462
+MD5sum: 92246a655cbc9c997e9654e9e9cd7e70
+SHA1: f427cb503d3b425d98d155eba92e3f6122a9f8f2
+SHA256: b3bcacd0541d958dd4b8ce1d02afc87b0b8b284cde67af75f774e79c93c8e1b2
