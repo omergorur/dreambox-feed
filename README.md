@@ -86,16 +86,17 @@ akışlarında sorunsuzdur.
 
 #### Bilinen kusur
 
-**TV'den kaydedilip MKV'ye çevrilmiş yayın dosyalarında** oynatmanın ilk
-~10 saniyesi takılır, sonra kendiliğinden düzelir. İleri sarmak da düzeltir.
-Diğer her şey (web indirmeleri, 4K HDR dahil) tam kare hızında, kare
-düşürmeden oynar.
+**Ses ile görüntü arasında sabit bir kayma olabilir** (ölçülen: 0,2–0,5 sn),
+özellikle yayından kaydedilmiş TS dosyalarında ve canlı PVR'da. Kodi'nin
+`Ses` ayarlarındaki gecikme (A/V offset) ile elle telafi edilebilir.
 
-Sebebi ölçüldü: kareler çözme sırasında beslenir ama her birine gösterim
-zaman damgası iliştirilir. Yayın kodlayıcıları derin B-kare piramidi
-kullandığı için bu damgalar sırasız gelir (ölçülen: `0.00, 0.32, 0.16,
-0.08…`) ve görüntü katmanı kareleri "geç kalmış" sayıp atar. Çözümü
-üzerinde çalışılıyor; düzelince yeni sürüm yayınlanacak.
+Sebebi ölçüldü: Kodi'nin Amlogic yolu normalde `/dev/video10` üzerinden
+donanımın çıkardığı **her kare için** bir bildirim alır ve zaman damgasını o
+karenin kendisinden okur. Bu kutuda o bildirim hiç gelmiyor — 801 kare
+beslendi, `VIDIOC_DQBUF` sıfır kare döndürdü; `amlvideo` görüntü zincirine
+eklendiğinde de sonuç değişmiyor. Bu yüzden gösterim zamanı örneklenerek
+tahmin ediliyor ve bu tahminin çözünürlüğü kadar kayma kalıyor. Üzerinde
+çalışılıyor.
 
 Kodi düzgün kapanamazsa (çökme, elektrik kesintisi) kutu bozuk video ayarları
 ile kalabilir — canlı yayın donar ya da görüntü ekranın dörtte birinde kalır.
@@ -116,8 +117,8 @@ kodi-hwdec-restore-av
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
 | `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
-| `kodi-hwdec` | 1.0 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
-| `enigma2-plugin-extensions-kodihwdec` | 1.0 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
+| `kodi-hwdec` | 1.0-r1 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
+| `enigma2-plugin-extensions-kodihwdec` | 1.0-r1 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
 | `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
