@@ -55,8 +55,11 @@ depo eklemeniz gerekmez.
 
 Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC 10-bit ve HDR
 dahil 4K60'a kadar. İşlemci yükü yazılım çözmeye göre onda birine iner.
-Kodi'nin kendi donanım yolları (v4l2m2m, amcodec) bu çekirdekte çalışmaz —
-sürücü çözülen kareyi userspace'e hiç vermez.
+**Deneysel: kare tabanlı çözücü.** `/etc/default/kodi-hwdec` içine
+`export KODI_AMCODEC=1` eklenirse video kare kare çözülür ve ekrana kare
+başına zamanlamayla basılır (50p ve 4K'da daha akıcı). H.264'te sarma
+çalışır; **4K HEVC'de sarma ara sıra takılıyor**, bu yüzden varsayılan
+kapalıdır. Kapatmak için satırı silin.
 
 Veri dizini varsayılan olarak `/data/kodi-hwdec`. Küçük resim önbelleği
 büyüyebilir; sabit diskiniz varsa `/etc/default/kodi-hwdec` içinden
@@ -117,8 +120,8 @@ kodi-hwdec-restore-av
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
 | `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
-| `kodi-hwdec` | 1.0-r1 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
-| `enigma2-plugin-extensions-kodihwdec` | 1.0-r1 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
+| `kodi-hwdec` | 1.0-r2 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
+| `enigma2-plugin-extensions-kodihwdec` | 1.0-r2 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
 | `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
