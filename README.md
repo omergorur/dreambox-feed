@@ -44,9 +44,10 @@ apt-get install kodi-hwdec enigma2-plugin-extensions-kodihwdec
 killall -9 enigma2
 ```
 
-Menüde **Kodi (donanım çözücü)** girişi belirir. Kutunun kendi *Kodi
-MediaCenter* girişi yerinde kalır; ikisi yan yana çalışır, istediğinizi
-kullanırsınız.
+Menüde **Kodi (donanım çözücü)** girişi belirir. DreamOS'un kendi Kodi'si
+yoktur; başka bir depodan kurulmuş bir Kodi varsa ona dokunulmaz. Bu paket
+`/opt/kodi-hwdec` altına kurulur, kendi veri dizinini kullanır ve onunla
+yan yana çalışabilir.
 
 Paket kendi kendine yeter: kutunun temel feed'inde bulunmayan dört kütüphane
 (`libinput`, `libevdev`, `mtdev`, `libtinyxml`) paketin içinde gelir ve
