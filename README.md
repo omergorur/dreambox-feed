@@ -120,8 +120,8 @@ kodi-hwdec-restore-av
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
 | `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
-| `kodi-hwdec` | 1.0-r3 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
-| `enigma2-plugin-extensions-kodihwdec` | 1.0-r3 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
+| `kodi-hwdec` | 1.0-r5 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
+| `enigma2-plugin-extensions-kodihwdec` | 1.0-r5 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
 | `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |

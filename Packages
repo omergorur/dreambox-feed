@@ -174,7 +174,7 @@ SHA1: cb775ac78e78a8a58bbde5c99d1e009587f3a647
 SHA256: fca83a2c33fe3b33990d2899970cffc4246da3161a2acc7ad4cba2205267bf17
 
 Package: kodi-hwdec
-Version: 1.0-r3
+Version: 1.0-r5
 Architecture: arm64
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -196,14 +196,14 @@ Description: Donanim video cozucu destekli Kodi 19
  Kendi kendine yeter: temel opendreambox feed'inde bulunmayan dort kutuphane
  (libinput, libevdev, mtdev, libtinyxml) ve XKB klavye verisi pakette
  tasinir; yalnizca bu uygulamaya gorunur. Ucuncu taraf bir depo gerekmez.
-Filename: ./kodi-hwdec_1.0-r3_arm64.deb
-Size: 32183146
-MD5sum: 95189f2755861e10bc68eabd689e1352
-SHA1: c1d06b2b38b03f3892fa2e75a3f6b1b95c96056c
-SHA256: 5d10a98da0c1f43c8c999ecc67072d5af4ec57d41cb0eb61aa5fe7798d11ce4e
+Filename: ./kodi-hwdec_1.0-r5_arm64.deb
+Size: 32186200
+MD5sum: 135a943253db44964f4e28dd3ae72101
+SHA1: 28d29361f495969c8497007814630818e9dacf72
+SHA256: 399f55196276b2e5650220874de646b28af9d8270b48da8d31912e699008ec70
 
 Package: enigma2-plugin-extensions-kodihwdec
-Version: 1.0-r3
+Version: 1.0-r5
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -216,11 +216,11 @@ Description: Donanim cozucu destekli Kodi icin menu girisi
  Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
  durdurur ve ALSA HDMI aygitini birakir -- birakilmazsa Kodi hdmidmix
  aygitini acamaz ve ses cikmaz. Cikista hepsi geri alinir.
-Filename: ./enigma2-plugin-extensions-kodihwdec_1.0-r3_all.deb
+Filename: ./enigma2-plugin-extensions-kodihwdec_1.0-r5_all.deb
 Size: 5468
-MD5sum: 5280cb065e2d3edede8ad773a25be689
-SHA1: 82b5bd3584bb976783e9746a13b75ae87c7c926d
-SHA256: 18f1d896988787677ef4c69ee3700123080f4cd3871f117d577dee4df4bb6ea0
+MD5sum: b84edee0f0cd5ea5d79056e16be0e0a2
+SHA1: 85c2dee25850c1b19d5f59d1b6e7f034e7f57740
+SHA256: 488dbbdf26abc2374bf5ebbc79f3129d754888e1e4b689242d4742f76f96e400
 
 Package: kodi-hwdec-inputstream-adaptive
 Version: 2.3.22
