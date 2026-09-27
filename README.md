@@ -3,6 +3,41 @@
 DreamOS (opendreambox 2.6, aarch64) için hazır `.deb` paketleri.
 Kutuya tek satırla eklenir, `apt` ile kurulup güncellenir.
 
+## Amaç
+
+DreamOS'un yazılım desteği 2017'de fiilen durdu. İmaj o günkü hâliyle
+kaldı: Linux 4.9, glibc 2.25, GCC 6 dönemi libstdc++, GLib 2.50,
+GStreamer 1.10, OpenSSL 1.0.2, Python 2.7. Donanım ise hâlâ güçlü:
+Dreambox One/Two'daki Amlogic S922X, 4K HEVC 10-bit video çözebiliyor.
+Ama üzerindeki yazılım bugünün yayınlarına, oynatıcılarına ve servislerine
+yetişemiyor.
+
+Bu deponun gayesi, desteği bitmiş bu imaja yeniden hayat vermek. Bunu
+imajı bozmadan yapıyoruz: sistem dosyalarını değiştirmiyor, kutunun kendi
+kütüphaneleriyle uyumlu kalıyoruz. Her paket kutuda ölçülerek ve test
+edilerek hazırlanıyor, `apt` ile güncelleniyor ve kaldırılınca iz
+bırakmıyor.
+
+Şimdiye kadar yapılanlar:
+
+- **Kodi 21.3 (Omega), donanım çözücülü:** Kodi'nin güncel sürümü,
+  kutunun Mali GPU'su ve ekran sürücüsüyle çalışıyor. Video, canlı TV'nin
+  kullandığı DVB donanım çözücüsünde çözülüyor: H.264, HEVC 10-bit ve
+  4K50. Kutunun C++ kütüphanesi eski olduğu için Kodi, kendi
+  kütüphanesini içine gömerek glibc 2.25'e göre derlendi. Tvheadend, IPTV
+  Simple, Enigma2 istemcileri ve inputstream.adaptive pakete dahil.
+- **Kodi 19, donanım çözücülü:** Bu yolun ilk adımı. Kodi 21 ile yan yana
+  kurulabilir ama gerekli değil.
+- **GStreamer HTTP kaynağı:** AJPanel stb-emu gibi Stalker portal
+  eklentileriyle açılan videolar 15-30 saniyede bir başa sarıyordu.
+  GStreamer 1.10'daki yeniden bağlanma hatası, aynı sürümden yamalanarak
+  giderildi.
+- **Transmission 4:** Tam statik derlendi; kutunun eski OpenSSL'inden ve
+  kütüphanelerinden bağımsız.
+- **python-coherence:** UPnP/DLNA keşfi (SSDP) için dayanıklılık yaması.
+- **enigma2 eklentileri:** EPG ayrıntıları, kayıt işaretleri, radyo
+  kanallarına görüntü, kanal takibi gibi günlük kullanım iyileştirmeleri.
+
 ## Kurulum
 
 Kutuya SSH ile bağlanın ve depoyu ekleyin:
