@@ -118,9 +118,10 @@ killall -9 enigma2
 ```
 
 Kodi'nin güncel kararlı sürümü (21.3 Omega). Menüde **Kodi 21 (donanım
-çözücü)** girişi belirir. Kodi 19 paketiyle (`kodi-hwdec`) yan yana kurulur:
-`/opt/kodi21-hwdec` altına, kendi veri dizinine (`/data/kodi21-hwdec`);
-ikisinin ayarları ve eklentileri birbirinden bağımsızdır.
+çözücü)** girişi belirir. Tek başına kurulur; Kodi 19 paketi (`kodi-hwdec`)
+**gerekmez**. İkisini birlikte kurmak isterseniz de birbirine karışmazlar:
+Kodi 21 `/opt/kodi21-hwdec` altına ve kendi veri dizinine
+(`/data/kodi21-hwdec`) kurulur, ayarları ve eklentileri ayrıdır.
 
 Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC ve MPEG2, 4K50
 dahil. Tvheadend, IPTV Simple, Enigma2 (Vu+) istemcileri ve
