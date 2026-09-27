@@ -35,8 +35,13 @@ bırakmıyor.
 - **Transmission 4:** Tam statik derlendi; kutunun eski OpenSSL'inden ve
   kütüphanelerinden bağımsız.
 - **python-coherence:** UPnP/DLNA keşfi (SSDP) için dayanıklılık yaması.
-- **enigma2 eklentileri:** EPG ayrıntıları, kayıt işaretleri, radyo
-  kanallarına görüntü, kanal takibi gibi günlük kullanım iyileştirmeleri.
+- **enigma2 eklentileri:** Günlük kullanım için iyileştirmeler:
+  - EPG'de oyuncu, yönetmen ve yapım yılı bilgileri.
+  - Kanal listesindeki ayraçların (marker) OpenATV'deki gibi kanal
+    numarası ayırması.
+  - Radyo kanallarında sabit resim yerine video.
+  - Ağdan izlenen yayının kutudaki kanal değişimini izlemesi.
+  - Transmission için enigma2 istemcisi.
 
 ## Kurulum
 
