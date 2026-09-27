@@ -37,6 +37,23 @@ Kutunuzdaki ayarı görmek için: `apt-config dump | grep Recommends`
 Daemon zaten ağdaki başka bir makinedeyse yalnızca eklentiyi kurun ve
 adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan girin.
 
+### GStreamer HTTP kaynağı (yeniden bağlanma düzeltmesi)
+
+```sh
+apt-get update && apt-get install gstreamer1.0-plugins-good-souphttpsrc
+systemctl restart enigma2
+```
+
+AJPanel stb-emu (Stalker portal) gibi eklentilerle açılan videoların
+15-30 saniyede bir **başa sarmasını** giderir. Sunucu oynatılan videonun
+bağlantısını kısa aralıklarla kesiyor; kutudaki GStreamer 1.10 yeniden
+bağlanırken sunucunun tek kullanımlık yönlendirme adresini istiyor, hata
+alıyor ve eklenti videoyu baştan başlatıyordu. Bu sürüm kopmada ilk adrese,
+kaldığı yerden yeniden bağlanır.
+
+Aynı GStreamer 1.10.4 sürümünden derlenmiştir; yalnızca HTTP kaynağı
+değişir. Geri dönmek için orijinal paket (`1.10.4-r0.1`) yeniden kurulabilir.
+
 ### Kodi 19 (donanım çözücü destekli)
 
 ```sh
@@ -137,6 +154,7 @@ kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
 | `transmission-daemon` | 4.1.3-3 | arm64 | 23.5 MB | Transmission BitTorrent daemon (statik derlenmis) |
 | `enigma2-plugin-extensions-transmission4` | 1.5 | all | 28 KB | Transmission 4.x icin enigma2 istemcisi |
 | `python-coherence` | 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2 | arm64 | 468 KB | Python UPnP framework (SSDP dayaniklilik yamalari) |
+| `gstreamer1.0-plugins-good-souphttpsrc` | 1.10.4-r0.1+reconnect1 | arm64 | 23 KB | GStreamer souphttpsrc (HTTP kaynagi), yeniden baglanma yamali |
 | `enigma2-plugin-extensions-eitextendeditems` | 1.4 | all | 17 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |

@@ -84,6 +84,33 @@ MD5sum: 57819e00033240f3576b4837ca36749c
 SHA1: d8a0f8ceae4bc1cc2f8fb597a9b413685bd45fac
 SHA256: 43fa2066e0aecc65cee60561a2ff94adae84d0b4c94563166c487df50d789d9e
 
+Package: gstreamer1.0-plugins-good-souphttpsrc
+Version: 1.10.4-r0.1+reconnect1
+Architecture: arm64
+Multi-Arch: same
+Maintainer: omergorur <omergorur@gmail.com>
+Section: multimedia
+Priority: optional
+Depends: gstreamer1.0 (>= 1.10.4), libc6 (>= 2.25), libglib-2.0-0 (>= 2.50.3), libgsttag-1.0-0 (>= 1.10.4), libsoup-2.4 (>= 2.56.0)
+OE: gstreamer1.0-plugins-good
+PackageArch: aarch64
+Homepage: http://gstreamer.freedesktop.org/
+Description: GStreamer souphttpsrc (HTTP kaynagi), yeniden baglanma yamali
+ gst-plugins-good 1.10.4 souphttpsrc eklentisi, upstream 1.10.4-r0.1 ile ayni
+ surumden derlendi; yalnizca yayin ortasinda kopan HTTP baglantisinda
+ yeniden baglanma davranisi degisti:
+  - yonlendirme (302) sonrasi yeniden deneme ilk adresten, kalinan bayttan
+    (Range) yapilir; tek kullanimlik hedef adres yeniden istenmez
+  - veri alinmaya baslandiktan sonra gelen 5xx (509/503) kalici hata
+    sayilmaz, 1/2/4 sn bekleyerek en fazla 5 kez yeniden denenir
+ Stalker portal (AJPanel stb-emu) videolarinin 15-30 sn'de bir basa
+ sarmasini giderir. Geri donus: orijinal paketi yeniden kurun.
+Filename: ./gstreamer1.0-plugins-good-souphttpsrc_1.10.4-r0.1+reconnect1_arm64.deb
+Size: 24036
+MD5sum: cbec5b14f4d4ed75aaf1bffb876a34fa
+SHA1: f0cfc6c84eaabad3c8068d78b7bd4d44a5d559da
+SHA256: be1a482bb4364c5e7a32b4e7770e2f67c05718df4085172078f13e5cfa9d49b5
+
 Package: enigma2-plugin-extensions-eitextendeditems
 Version: 1.4
 Architecture: all
