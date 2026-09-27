@@ -203,24 +203,23 @@ SHA1: 06b27bc97c92a135245dc13a1f023b1bb2c43097
 SHA256: 60037b5825c373341e783948da8cd51dd75fc561e6967afc05a48090681805b5
 
 Package: enigma2-plugin-extensions-kodihwdec
-Version: 1.0-r6
+Version: 1.0-r7
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
 Priority: optional
 Depends: enigma2, kodi-hwdec
-Description: Donanim cozucu destekli Kodi icin menu girisi
- Ana menuye ve eklenti menusune "Kodi (donanim cozucu)" girisi ekler.
- Kutunun kendi "Kodi MediaCenter" girisi yerinde kalir.
+Description: Kodi 19 icin menu girisi
+ Ana menuye ve eklenti menusune "Kodi 19" girisi ekler.
  .
  Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
  durdurur ve ALSA HDMI aygitini birakir -- birakilmazsa Kodi hdmidmix
  aygitini acamaz ve ses cikmaz. Cikista hepsi geri alinir.
-Filename: ./enigma2-plugin-extensions-kodihwdec_1.0-r6_all.deb
-Size: 5468
-MD5sum: 48414115233f6a2ff643187f73150a68
-SHA1: e12d305326517e91319d0652d6d1d84969ca50c6
-SHA256: a90d5366348f91557aeace54213f5631e4b09c41cd779b0b8b86e06c8c06693b
+Filename: ./enigma2-plugin-extensions-kodihwdec_1.0-r7_all.deb
+Size: 5410
+MD5sum: 35ee1a2c61d81301514572f93670e0b5
+SHA1: 676b0e4f4cb9b0b76defca344bbf9c6eb270759c
+SHA256: 603d89b6c072a44622738cb26b653c28e026a1046c12d5c6c84fadfa7b3a9947
 
 Package: kodi-hwdec-inputstream-adaptive
 Version: 2.3.22
@@ -301,7 +300,7 @@ SHA1: 7879eb13caf8d4439ef378499de18955d345fb1c
 SHA256: 8db44ab6759938300e84fc0b18b81361d5cf9dd4ba5c0882656c6750c3a3a8af
 
 Package: kodi21-hwdec
-Version: 1.0-r1
+Version: 1.0-r2
 Architecture: arm64
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -311,32 +310,32 @@ Description: Donanim video cozucu destekli Kodi 21
  Kodi 21.3 (CoreELEC tabanli). Video kutunun DVB donanim cozucusunde
  (/dev/dvb/adapter0/video0) cozulur: H.264, HEVC ve MPEG2, 4K50 dahil.
  .
- Kodi 19 paketiyle (kodi-hwdec) yan yana kurulur: /opt/kodi21-hwdec altina,
- kendi veri dizinine (/data/kodi21-hwdec). Menu girisi icin
+ Tek basina kurulur; Kodi 19 paketi (kodi-hwdec) gerekmez. Ikisi birlikte
+ kurulursa da karismazlar: /opt/kodi21-hwdec altina ve kendi veri dizinine
+ (/data/kodi21-hwdec) kurulur. Menu girisi icin
  enigma2-plugin-extensions-kodi21hwdec paketini de kurun.
  .
  Tvheadend istemcisi (pvr.hts) pakete dahildir.
-Filename: ./kodi21-hwdec_1.0-r1_arm64.deb
-Size: 60234540
-MD5sum: 7123d9cafc3f3dae366776392d5ebb1b
-SHA1: 82ce740bab42f0102e6ce5634263ff4ebcd6c9c1
-SHA256: b55ccd08f72ebd849fa60eff6d6fb7f4d33377327cb35d146ff5b290c3c4b19f
+Filename: ./kodi21-hwdec_1.0-r2_arm64.deb
+Size: 60234572
+MD5sum: ae915382b37d9a4eb64c083ee15f92da
+SHA1: 16573184a595bc0b5cdfb874fe53b17c177091c8
+SHA256: d3f3c16453939c82ba316465362b9442fdad12d2bd00bc7c1886e59dae1f3169
 
 Package: enigma2-plugin-extensions-kodi21hwdec
-Version: 1.0-r1
+Version: 1.0-r2
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
 Priority: optional
 Depends: enigma2, kodi21-hwdec
-Description: Kodi 21 (donanim cozucu) icin menu girisi
- Ana menuye ve eklenti menusune "Kodi 21 (donanim cozucu)" girisi ekler.
- Kodi 19 paketinin girisi (kodihwdec) yerinde kalir.
+Description: Kodi 21 icin menu girisi
+ Ana menuye ve eklenti menusune "Kodi 21" girisi ekler.
  .
  Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
  durdurur ve ALSA HDMI aygitini birakir. Cikista hepsi geri alinir.
-Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r1_all.deb
-Size: 5454
-MD5sum: cd7d5a2d713abe73c01947e41c3cbb49
-SHA1: b013182121c94820577cf5fa824d12d879bffa4c
-SHA256: d6b08b6f2e84ecb6c0052f4fd579e1285c826fabae12e1dabb6f5da73806b4d9
+Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r2_all.deb
+Size: 5400
+MD5sum: 499f5f5eebe86a5c31c5efb333eddd80
+SHA1: f23c1d1d44fdb94ee92ee2cef7fddda044ba4208
+SHA256: a41858ba479a4db8b22555243671068e270d35f323a0ea618d82efb9f07d7c5b

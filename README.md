@@ -37,14 +37,14 @@ Kutunuzdaki ayarı görmek için: `apt-config dump | grep Recommends`
 Daemon zaten ağdaki başka bir makinedeyse yalnızca eklentiyi kurun ve
 adresini **Menü → Eklentiler → Transmission → Menü → Ayarlar**'dan girin.
 
-### Donanım çözücü destekli Kodi
+### Kodi 19 (donanım çözücü destekli)
 
 ```sh
 apt-get install kodi-hwdec enigma2-plugin-extensions-kodihwdec
 killall -9 enigma2
 ```
 
-Menüde **Kodi (donanım çözücü)** girişi belirir. DreamOS'un kendi Kodi'si
+Menüde **Kodi 19** girişi belirir. DreamOS'un kendi Kodi'si
 yoktur; başka bir depodan kurulmuş bir Kodi varsa ona dokunulmaz. Bu paket
 `/opt/kodi-hwdec` altına kurulur, kendi veri dizinini kullanır ve onunla
 yan yana çalışabilir.
@@ -110,15 +110,15 @@ Tek komutla toparlanır:
 kodi-hwdec-restore-av
 ```
 
-### Kodi 21 (donanım çözücü)
+### Kodi 21 (donanım çözücü destekli)
 
 ```sh
 apt-get install kodi21-hwdec enigma2-plugin-extensions-kodi21hwdec
 killall -9 enigma2
 ```
 
-Kodi'nin güncel kararlı sürümü (21.3 Omega). Menüde **Kodi 21 (donanım
-çözücü)** girişi belirir. Tek başına kurulur; Kodi 19 paketi (`kodi-hwdec`)
+Kodi'nin güncel kararlı sürümü (21.3 Omega). Menüde **Kodi 21** girişi
+belirir. Tek başına kurulur; Kodi 19 paketi (`kodi-hwdec`)
 **gerekmez**. İkisini birlikte kurmak isterseniz de birbirine karışmazlar:
 Kodi 21 `/opt/kodi21-hwdec` altına ve kendi veri dizinine
 (`/data/kodi21-hwdec`) kurulur, ayarları ve eklentileri ayrıdır.
@@ -142,13 +142,13 @@ kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
 | `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
 | `kodi-hwdec` | 1.0-r6 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
-| `enigma2-plugin-extensions-kodihwdec` | 1.0-r6 | all | 5 KB | Donanim cozucu destekli Kodi icin menu girisi |
+| `enigma2-plugin-extensions-kodihwdec` | 1.0-r7 | all | 5 KB | Kodi 19 icin menu girisi |
 | `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
-| `kodi21-hwdec` | 1.0-r1 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
-| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r1 | all | 5 KB | Kodi 21 (donanim cozucu) icin menu girisi |
+| `kodi21-hwdec` | 1.0-r2 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
+| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r2 | all | 5 KB | Kodi 21 icin menu girisi |
 
 ## Notlar
 
