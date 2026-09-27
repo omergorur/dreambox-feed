@@ -299,3 +299,44 @@ Size: 363606
 MD5sum: c479ea2fce1a8c7cf13d150ca85f9590
 SHA1: 7879eb13caf8d4439ef378499de18955d345fb1c
 SHA256: 8db44ab6759938300e84fc0b18b81361d5cf9dd4ba5c0882656c6750c3a3a8af
+
+Package: kodi21-hwdec
+Version: 1.0-r1
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: libc6, libstdc++6, libgcc1, libasound2, libdbus-1-3, meson-mali, glibc-gconv-utf-32, glibc-gconv-utf-16, glibc-gconv-unicode, glibc-gconv-cp1252, glibc-gconv-iso8859-1, glibc-gconv-iso8859-9, glibc-gconv-cp1254
+Description: Donanim video cozucu destekli Kodi 21
+ Kodi 21.3 (CoreELEC tabanli). Video kutunun DVB donanim cozucusunde
+ (/dev/dvb/adapter0/video0) cozulur: H.264, HEVC ve MPEG2, 4K50 dahil.
+ .
+ Kodi 19 paketiyle (kodi-hwdec) yan yana kurulur: /opt/kodi21-hwdec altina,
+ kendi veri dizinine (/data/kodi21-hwdec). Menu girisi icin
+ enigma2-plugin-extensions-kodi21hwdec paketini de kurun.
+ .
+ Tvheadend istemcisi (pvr.hts) pakete dahildir.
+Filename: ./kodi21-hwdec_1.0-r1_arm64.deb
+Size: 60234540
+MD5sum: 7123d9cafc3f3dae366776392d5ebb1b
+SHA1: 82ce740bab42f0102e6ce5634263ff4ebcd6c9c1
+SHA256: b55ccd08f72ebd849fa60eff6d6fb7f4d33377327cb35d146ff5b290c3c4b19f
+
+Package: enigma2-plugin-extensions-kodi21hwdec
+Version: 1.0-r1
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2, kodi21-hwdec
+Description: Kodi 21 (donanim cozucu) icin menu girisi
+ Ana menuye ve eklenti menusune "Kodi 21 (donanim cozucu)" girisi ekler.
+ Kodi 19 paketinin girisi (kodihwdec) yerinde kalir.
+ .
+ Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
+ durdurur ve ALSA HDMI aygitini birakir. Cikista hepsi geri alinir.
+Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r1_all.deb
+Size: 5454
+MD5sum: cd7d5a2d713abe73c01947e41c3cbb49
+SHA1: b013182121c94820577cf5fa824d12d879bffa4c
+SHA256: d6b08b6f2e84ecb6c0052f4fd579e1285c826fabae12e1dabb6f5da73806b4d9

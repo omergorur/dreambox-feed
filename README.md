@@ -110,6 +110,25 @@ Tek komutla toparlanır:
 kodi-hwdec-restore-av
 ```
 
+### Kodi 21 (donanım çözücü)
+
+```sh
+apt-get install kodi21-hwdec enigma2-plugin-extensions-kodi21hwdec
+killall -9 enigma2
+```
+
+Kodi'nin güncel kararlı sürümü (21.3 Omega). Menüde **Kodi 21 (donanım
+çözücü)** girişi belirir. Kodi 19 paketiyle (`kodi-hwdec`) yan yana kurulur:
+`/opt/kodi21-hwdec` altına, kendi veri dizinine (`/data/kodi21-hwdec`);
+ikisinin ayarları ve eklentileri birbirinden bağımsızdır.
+
+Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC ve MPEG2, 4K50
+dahil. Tvheadend, IPTV Simple, Enigma2 (Vu+) istemcileri ve
+inputstream.adaptive pakete dahildir, ayrıca kurulmaz.
+
+Kurulum ~155 MB yer kaplar. Kök bölümde yer azsa önce `df -h /` ile
+kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
+
 ## Paketler
 
 | Paket | Sürüm | Mimari | Boyut | Açıklama |
@@ -127,6 +146,8 @@ kodi-hwdec-restore-av
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
+| `kodi21-hwdec` | 1.0-r1 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
+| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r1 | all | 5 KB | Kodi 21 (donanim cozucu) icin menu girisi |
 
 ## Notlar
 
