@@ -147,8 +147,8 @@ kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
-| `kodi21-hwdec` | 1.0-r2 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
-| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r2 | all | 5 KB | Kodi 21 icin menu girisi |
+| `kodi21-hwdec` | 1.0-r3 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
+| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r3 | all | 5 KB | Kodi 21 icin menu girisi |
 
 ## Notlar
 
