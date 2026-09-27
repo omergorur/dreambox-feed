@@ -111,6 +111,26 @@ MD5sum: cbec5b14f4d4ed75aaf1bffb876a34fa
 SHA1: f0cfc6c84eaabad3c8068d78b7bd4d44a5d559da
 SHA256: be1a482bb4364c5e7a32b4e7770e2f67c05718df4085172078f13e5cfa9d49b5
 
+Package: enigma2-kilit-bekcisi
+Version: 1.0-r0
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: base
+Priority: optional
+Depends: enigma2
+Description: enigma2 kilitlenme bekcisi
+ Bir eklenti (orn. AJPanel) enigma2'nin Python kilidini (GIL) kilitli
+ birakirsa enigma2 donar, kumanda hicbir sey yapamaz. Bu bekci enigma2'nin
+ ana is parcacigi 60 sn boyunca kilitte ve hic ilerlemeden kalirsa enigma2'yi
+ kendiliginden yeniden baslatir (systemd). Kodi calisirken ve enigma2
+ acildiktan sonraki ilk 3 dakika dokunmaz. Kayitlar: journalctl -u
+ e2-kilit-bekcisi
+Filename: ./enigma2-kilit-bekcisi_1.0-r0_all.deb
+Size: 2254
+MD5sum: 0fcad3848cc99153b9abe3338885b2c3
+SHA1: 0931913296af091de34ad835e02c54b570613a8e
+SHA256: 103a701bc332b274f403ca31e748c15f7963a402d76d2659ff11e133f040848d
+
 Package: enigma2-plugin-extensions-eitextendeditems
 Version: 1.4
 Architecture: all
