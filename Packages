@@ -131,6 +131,47 @@ MD5sum: 0fcad3848cc99153b9abe3338885b2c3
 SHA1: 0931913296af091de34ad835e02c54b570613a8e
 SHA256: 103a701bc332b274f403ca31e748c15f7963a402d76d2659ff11e133f040848d
 
+Package: enigma2-plugin-systemplugins-threadguard
+Version: 1.0
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Description: Eklentilerin arka plandan yaptigi GUI cagrilarini ana donguye devreder
+ enigma2'de ekranlar ve zamanlayicilar yalnizca ana is parcacigindan
+ kullanilabilir. Bazi eklentiler (orn. AJPanel, dizi kategorisi yuklerken
+ sunucu hata verince) ekrani arka plan is parcacigindan kapatiyor; enigma2
+ Python kilidinde (GIL) donuyor, kumanda cevap vermiyor. Bu eklenti
+ Screen.close ve eTimer.start/stop cagrilarini, ana is parcacigi disindan
+ geldiklerinde ana donguye kuyruklar ve cagiran yeri gunluge yazar
+ (journalctl -u enigma2 | grep ThreadGuard). Sistem dosyalarina dokunmaz.
+Filename: ./enigma2-plugin-systemplugins-threadguard_1.0_all.deb
+Size: 2812
+MD5sum: de34cdeb469c27ee37ce1f11ebf7887b
+SHA1: 012588a802cab786bad68d71b60eaf479c8ac06e
+SHA256: 2ea95706ecd62212cd5480416fbcf688149e4a21ad15cb9d1f69b40dbb50f639
+
+Package: enigma2-plugin-systemplugins-portalretry
+Version: 1.0
+Architecture: all
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: enigma2
+Description: Stalker portal liste sayfalarini gecici hatada yeniden ister
+ AJPanel gibi eklentiler bir dizi/film kategorisini sayfa sayfa ceker;
+ sunucu tek bir sayfada zaman asimi, 5xx ya da bos cevap verirse butun
+ liste "error while reading" ile yarida kalir. Bu eklenti yalnizca
+ get_ordered_list isteklerini, yalnizca arka plan is parcacigindan
+ gelenlerde, 1/2/4 sn bekleyerek en fazla 3 kez yeniden dener.
+ Gunluk: journalctl -u enigma2 | grep PortalRetry
+Filename: ./enigma2-plugin-systemplugins-portalretry_1.0_all.deb
+Size: 2604
+MD5sum: 27470f9d6f64f5ac6e2351f8d8f8ff79
+SHA1: d5b94b078c597ddf024648ce81a7c6fdddf5c8ac
+SHA256: b8fd3a1ca2bffde020442ff2fec993720018992fa4778d8daa2d16655e8f0bed
+
 Package: enigma2-plugin-extensions-eitextendeditems
 Version: 1.4
 Architecture: all

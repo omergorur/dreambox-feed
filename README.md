@@ -32,9 +32,12 @@ bırakmıyor.
   eklentileriyle açılan videolar 15-30 saniyede bir başa sarıyordu.
   GStreamer 1.10'daki yeniden bağlanma hatası, aynı sürümden yamalanarak
   giderildi.
-- **enigma2 kilitlenme bekçisi:** Bazı eklentiler (örneğin AJPanel)
-  enigma2'yi kumandanın hiç cevap vermediği biçimde kilitliyordu; bekçi
-  bunu fark edip enigma2'yi kendiliğinden yeniden başlatır.
+- **AJPanel donması ve yarım kalan listeler:** Stalker portalında dizi
+  kategorisi yüklenirken enigma2 kumandanın hiç cevap vermediği biçimde
+  donuyordu. Nedeni bulunup AJPanel'e dokunmadan giderildi (ThreadGuard);
+  sunucunun yavaş kaldığı sayfalar artık yeniden isteniyor, liste yarıda
+  kesilmiyor (PortalRetry). Başka bir eklenti enigma2'yi yine kilitlerse
+  kilitlenme bekçisi enigma2'yi kendiliğinden yeniden başlatır.
 - **Transmission 4:** Tam statik derlendi; kutunun eski OpenSSL'inden ve
   kütüphanelerinden bağımsız.
 - **python-coherence:** UPnP/DLNA keşfi (SSDP) için dayanıklılık yaması.
@@ -97,14 +100,43 @@ kaldığı yerden yeniden bağlanır.
 Aynı GStreamer 1.10.4 sürümünden derlenmiştir; yalnızca HTTP kaynağı
 değişir. Geri dönmek için orijinal paket (`1.10.4-r0.1`) yeniden kurulabilir.
 
+### AJPanel / Stalker: donma ve yarım kalan listeler
+
+```sh
+apt-get update
+apt-get install enigma2-plugin-systemplugins-threadguard enigma2-plugin-systemplugins-portalretry
+systemctl restart enigma2
+```
+
+**ThreadGuard:** AJPanel bir dizi kategorisini arka planda sayfa sayfa
+çeker. Sunucu bir sayfada hata verince ilerleme ekranını o arka plan iş
+parçacığından kapatıyordu; enigma2'de ekranlar ve zamanlayıcılar yalnızca
+ana iş parçacığından kullanılabildiği için enigma2 Python kilidinde (GIL)
+donuyor, kumanda hiçbir şey yapamıyordu. ThreadGuard, ana iş parçacığı
+dışından gelen `Screen.close` ve `eTimer.start/stop` çağrılarını ana
+döngüye devreder ve çağıran yeri günlüğe yazar. Aynı hatayı yapan her
+eklentiyi korur. Günlük: `journalctl -u enigma2 | grep ThreadGuard`
+
+**PortalRetry:** AJPanel'in portal zaman aşımı varsayılan olarak 2 saniye;
+sunucu bir sayfayı geç verince bütün liste "error while reading" ile
+yarıda kalıyordu. PortalRetry yalnızca Stalker liste sayfalarını
+(`get_ordered_list`), zaman aşımı, 429/5xx ya da boş/bozuk cevapta 1, 2, 4
+saniye bekleyerek en fazla 3 kez yeniden ister; ekranı ve kumandayı
+bekletmez. Günlük: `journalctl -u enigma2 | grep PortalRetry`
+
+İpucu: AJPanel ayarlarında "Portal Servers Connection Timeout" değerini
+5 yapmak yavaş sunucularda bekleme noktalarını azaltır.
+
+İki eklenti de sistem dosyalarına dokunmaz; sarmalama çalışma zamanındadır.
+
 ### enigma2 kilitlenme bekçisi
 
 ```sh
 apt-get update && apt-get install enigma2-kilit-bekcisi
 ```
 
-Bazı eklentiler (örneğin AJPanel'de dizi kategorisi yüklerken) enigma2'nin
-Python kilidini kilitli bırakıyor: ekran donuk kalır, kumanda hiçbir şey
+Bir eklenti enigma2'nin Python kilidini kilitli bırakırsa (AJPanel'deki
+durum ThreadGuard ile giderildi; bu bekçi başka eklentiler için yedek): ekran donuk kalır, kumanda hiçbir şey
 yapamaz, enigma2 normal kapatma isteğine de uymaz; tek çare SSH'ten
 `killall -9 enigma2` idi. Bekçi enigma2'nin ana iş parçacığını 10 saniyede
 bir yoklar; 60 saniye boyunca kilitte bekleyip hiç ilerlemezse enigma2'yi
@@ -218,6 +250,8 @@ kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
 | `python-coherence` | 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2 | arm64 | 468 KB | Python UPnP framework (SSDP dayaniklilik yamalari) |
 | `gstreamer1.0-plugins-good-souphttpsrc` | 1.10.4-r0.1+reconnect1 | arm64 | 23 KB | GStreamer souphttpsrc (HTTP kaynagi), yeniden baglanma yamali |
 | `enigma2-kilit-bekcisi` | 1.0-r0 | all | 2 KB | enigma2 kilitlenme bekcisi |
+| `enigma2-plugin-systemplugins-threadguard` | 1.0 | all | 3 KB | Eklentilerin arka plandan yaptigi GUI cagrilarini ana donguye devreder |
+| `enigma2-plugin-systemplugins-portalretry` | 1.0 | all | 3 KB | Stalker portal liste sayfalarini gecici hatada yeniden ister |
 | `enigma2-plugin-extensions-eitextendeditems` | 1.4 | all | 17 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
