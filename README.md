@@ -36,8 +36,9 @@ bırakmıyor.
   kategorisi yüklenirken enigma2 kumandanın hiç cevap vermediği biçimde
   donuyordu. Nedeni bulunup AJPanel'e dokunmadan giderildi (ThreadGuard);
   sunucunun yavaş kaldığı sayfalar artık yeniden isteniyor, liste yarıda
-  kesilmiyor (PortalRetry). Başka bir eklenti enigma2'yi yine kilitlerse
-  kilitlenme bekçisi enigma2'yi kendiliğinden yeniden başlatır.
+  kesilmiyor, film ve dizi listelerinde gerçek IMDb puanı görünüyor
+  (PortalRetry). Başka bir eklenti enigma2'yi yine kilitlerse kilitlenme
+  bekçisi enigma2'yi kendiliğinden yeniden başlatır.
 - **Transmission 4:** Tam statik derlendi; kutunun eski OpenSSL'inden ve
   kütüphanelerinden bağımsız.
 - **python-coherence:** UPnP/DLNA keşfi (SSDP) için dayanıklılık yaması.
@@ -100,7 +101,7 @@ kaldığı yerden yeniden bağlanır.
 Aynı GStreamer 1.10.4 sürümünden derlenmiştir; yalnızca HTTP kaynağı
 değişir. Geri dönmek için orijinal paket (`1.10.4-r0.1`) yeniden kurulabilir.
 
-### AJPanel / Stalker: donma ve yarım kalan listeler
+### AJPanel / Stalker: donma, yarım kalan listeler ve IMDb puanı
 
 ```sh
 apt-get update
@@ -113,8 +114,10 @@ systemctl restart enigma2
 parçacığından kapatıyordu; enigma2'de ekranlar ve zamanlayıcılar yalnızca
 ana iş parçacığından kullanılabildiği için enigma2 Python kilidinde (GIL)
 donuyor, kumanda hiçbir şey yapamıyordu. ThreadGuard, ana iş parçacığı
-dışından gelen `Screen.close` ve `eTimer.start/stop` çağrılarını ana
-döngüye devreder ve çağıran yeri günlüğe yazar. Aynı hatayı yapan her
+dışından gelen `Screen.close`, `eTimer.start/stop` ve `Session.open`
+çağrılarını ana döngüye devreder ve çağıran yeri günlüğe yazar. (AJPanel
+sunucudan oturum anahtarı alamayınca hata kutusunu da arka plandan açıyor,
+enigma2 "FATAL!: addTimer" ile yeşil ekran veriyordu; 1.1 bunu da önler.) Aynı hatayı yapan her
 eklentiyi korur. Günlük: `journalctl -u enigma2 | grep ThreadGuard`
 
 **PortalRetry:** AJPanel'in portal zaman aşımı varsayılan olarak 2 saniye;
@@ -123,6 +126,31 @@ yarıda kalıyordu. PortalRetry yalnızca Stalker liste sayfalarını
 (`get_ordered_list`), zaman aşımı, 429/5xx ya da boş/bozuk cevapta 1, 2, 4
 saniye bekleyerek en fazla 3 kez yeniden ister; ekranı ve kumandayı
 bekletmez. Günlük: `journalctl -u enigma2 | grep PortalRetry`
+
+**IMDb puanı (PortalRetry 1.3):** Stalker sunucularının gönderdiği
+`rating_imdb` alanı çoğu zaman gerçek IMDb puanı değildir (ölçülen
+sunucuda Kinopoisk ile aynı, yuvarlanmış tam sayı). PortalRetry, her
+içeriğin `tmdb_id` alanıyla TMDB'den IMDb kimliğini bulur, puanı IMDb'nin
+her gün yayımladığı resmi puan dosyasından (`title.ratings.tsv`) okur:
+
+- Film ve dizi listelerinde AJPanel'in boş "Catch-up" sütunu **IMDb**
+  başlığıyla puanı gösterir.
+- Bölüm sayfasında puan sezon adının yanında yazar (`Sezon 1 | IMDb 5.3`).
+- Eşleşmeler kutuda saklanır; her içerik TMDB'ye bir kez sorulur. Puan
+  dosyası (~30 MB, `/data/portalretry`) günde bir tazelenir.
+
+Bunun için ücretsiz bir **TMDB API anahtarı** gerekir (themoviedb.org →
+hesap → Ayarlar → API → "API Key"). Anahtarı kutuya yazın ve enigma2'yi
+yeniden başlatın:
+
+```sh
+umask 077; echo "ANAHTARINIZ" > /etc/enigma2/portalretry-tmdb.key
+systemctl restart enigma2
+```
+
+Anahtar yoksa puan hiç gösterilmez; diğer işlevler etkilenmez. Bu ürün
+TMDB API'sini kullanır ancak TMDB tarafından onaylanmamıştır. IMDb puan
+verisi kişisel, ticari olmayan kullanım içindir.
 
 İpucu: AJPanel ayarlarında "Portal Servers Connection Timeout" değerini
 5 yapmak yavaş sunucularda bekleme noktalarını azaltır.
@@ -250,8 +278,8 @@ kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
 | `python-coherence` | 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2 | arm64 | 468 KB | Python UPnP framework (SSDP dayaniklilik yamalari) |
 | `gstreamer1.0-plugins-good-souphttpsrc` | 1.10.4-r0.1+reconnect1 | arm64 | 23 KB | GStreamer souphttpsrc (HTTP kaynagi), yeniden baglanma yamali |
 | `enigma2-kilit-bekcisi` | 1.0-r0 | all | 2 KB | enigma2 kilitlenme bekcisi |
-| `enigma2-plugin-systemplugins-threadguard` | 1.0 | all | 3 KB | Eklentilerin arka plandan yaptigi GUI cagrilarini ana donguye devreder |
-| `enigma2-plugin-systemplugins-portalretry` | 1.0 | all | 3 KB | Stalker portal liste sayfalarini gecici hatada yeniden ister |
+| `enigma2-plugin-systemplugins-threadguard` | 1.1 | all | 4 KB | Eklentilerin arka plandan yaptigi GUI cagrilarini ana donguye devreder |
+| `enigma2-plugin-systemplugins-portalretry` | 1.3 | all | 7 KB | Stalker portal liste sayfalarini gecici hatada yeniden ister |
 | `enigma2-plugin-extensions-eitextendeditems` | 1.4 | all | 17 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
 | `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |

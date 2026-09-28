@@ -132,7 +132,7 @@ SHA1: 0931913296af091de34ad835e02c54b570613a8e
 SHA256: 103a701bc332b274f403ca31e748c15f7963a402d76d2659ff11e133f040848d
 
 Package: enigma2-plugin-systemplugins-threadguard
-Version: 1.0
+Version: 1.1
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -143,17 +143,19 @@ Description: Eklentilerin arka plandan yaptigi GUI cagrilarini ana donguye devre
  kullanilabilir. Bazi eklentiler (orn. AJPanel, dizi kategorisi yuklerken
  sunucu hata verince) ekrani arka plan is parcacigindan kapatiyor; enigma2
  Python kilidinde (GIL) donuyor, kumanda cevap vermiyor. Bu eklenti
- Screen.close ve eTimer.start/stop cagrilarini, ana is parcacigi disindan
- geldiklerinde ana donguye kuyruklar ve cagiran yeri gunluge yazar
+ Screen.close, eTimer.start/stop ve Session.open/instantiateDialog
+ cagrilarini, ana is parcacigi disindan geldiklerinde ana donguye devreder
+ (1.1: AJPanel'in arka plandan actigi hata kutusu "FATAL!: addTimer" ile
+ yesil ekran veriyordu) ve cagiran yeri gunluge yazar
  (journalctl -u enigma2 | grep ThreadGuard). Sistem dosyalarina dokunmaz.
-Filename: ./enigma2-plugin-systemplugins-threadguard_1.0_all.deb
-Size: 2812
-MD5sum: de34cdeb469c27ee37ce1f11ebf7887b
-SHA1: 012588a802cab786bad68d71b60eaf479c8ac06e
-SHA256: 2ea95706ecd62212cd5480416fbcf688149e4a21ad15cb9d1f69b40dbb50f639
+Filename: ./enigma2-plugin-systemplugins-threadguard_1.1_all.deb
+Size: 3622
+MD5sum: a07009774db5504768965688a3fc0e9e
+SHA1: 34bea082dfd0428032f280f6de7972046df4141f
+SHA256: 713c9c996fa4e8cc8ec67de463fbf90b8151ee278fa415056d21c1541be63338
 
 Package: enigma2-plugin-systemplugins-portalretry
-Version: 1.0
+Version: 1.3
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -165,12 +167,21 @@ Description: Stalker portal liste sayfalarini gecici hatada yeniden ister
  liste "error while reading" ile yarida kalir. Bu eklenti yalnizca
  get_ordered_list isteklerini, yalnizca arka plan is parcacigindan
  gelenlerde, 1/2/4 sn bekleyerek en fazla 3 kez yeniden dener.
+ Gercek IMDb puani: ogenin tmdb_id'si ile TMDB'den IMDb kimligi, IMDb'nin
+ gunluk title.ratings dosyasindan puan alinir (sunucunun rating_imdb alani
+ IMDb puani degil). Film/dizi listelerinde bos "Catch-up" sutununda, bolum
+ sayfasinda sezon adinin yaninda gorunur. TMDB API anahtari kullanici
+ tarafindan /etc/enigma2/portalretry-tmdb.key dosyasina konur; yoksa puan
+ gosterilmez. Veri /data/portalretry altinda (~30 MB).
+ AJPanel'deki "Catch-up" sutun basligi "IMDb" olarak degistirilir
+ (calisma zamaninda; AJPanel dosyasina dokunulmaz).
+ Bu urun TMDB API'sini kullanir ancak TMDB tarafindan onaylanmamistir.
  Gunluk: journalctl -u enigma2 | grep PortalRetry
-Filename: ./enigma2-plugin-systemplugins-portalretry_1.0_all.deb
-Size: 2604
-MD5sum: 27470f9d6f64f5ac6e2351f8d8f8ff79
-SHA1: d5b94b078c597ddf024648ce81a7c6fdddf5c8ac
-SHA256: b8fd3a1ca2bffde020442ff2fec993720018992fa4778d8daa2d16655e8f0bed
+Filename: ./enigma2-plugin-systemplugins-portalretry_1.3_all.deb
+Size: 7142
+MD5sum: 7a5c0ff66b69d1f7892dd133bdad3882
+SHA1: 27769332ed7c0411ad2020ef3f43eea2eea434b8
+SHA256: 42010457d24026c826257cd23c0c3c3322025561dfc3054bf4caa8b1d57c7735
 
 Package: enigma2-plugin-extensions-eitextendeditems
 Version: 1.4
