@@ -399,7 +399,7 @@ SHA1: 7879eb13caf8d4439ef378499de18955d345fb1c
 SHA256: 8db44ab6759938300e84fc0b18b81361d5cf9dd4ba5c0882656c6750c3a3a8af
 
 Package: kodi21-hwdec
-Version: 1.0-r9
+Version: 1.0-r10
 Architecture: arm64
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -415,14 +415,14 @@ Description: Donanim video cozucu destekli Kodi 21
  enigma2-plugin-extensions-kodi21hwdec paketini de kurun.
  .
  Tvheadend istemcisi (pvr.hts) pakete dahildir.
-Filename: ./kodi21-hwdec_1.0-r9_arm64.deb
-Size: 60238374
-MD5sum: 405cf90460fd32f26af922a258a0d632
-SHA1: 24a53aabe31eeb15e4249c6259707c2f1ec5508c
-SHA256: f482f73ea3b6612e7467ed82f1e4f4bf7376c782afc9455c0f2fbb843d08982b
+Filename: ./kodi21-hwdec_1.0-r10_arm64.deb
+Size: 60238362
+MD5sum: e7abb15b0a5999ed4ebbdc55c122e5b7
+SHA1: 9f32e4964f51c731e1b0d400a36d528b588ea93a
+SHA256: 73096fd55c8d31b415dd22ea5a7058f60b6ed9b44acf178eb8c1298c6ddabce0
 
 Package: enigma2-plugin-extensions-kodi21hwdec
-Version: 1.0-r9
+Version: 1.0-r10
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -433,8 +433,8 @@ Description: Kodi 21 icin menu girisi
  .
  Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
  durdurur ve ALSA HDMI aygitini birakir. Cikista hepsi geri alinir.
-Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r9_all.deb
+Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r10_all.deb
 Size: 5402
-MD5sum: 051530d3401dfbaae9ba47c0da142206
-SHA1: fb35b0e1743d63cec8bf538cee19d3e0fc019bb6
-SHA256: 4e00b3ed068441d00c289fe2e6aeecdb6bd6a69ac58924454bdafe24b42a25ab
+MD5sum: d3357058e7950e69d63387a5b74e9cc8
+SHA1: 1ddba4fb7cbc926231aba3a5fa8eda9fb2d40d6c
+SHA256: 6972f4b27d4baddb3cbe43b575d3b5de87c6ebe7aef01748521fb9ef8e5c0959

@@ -269,7 +269,7 @@ inputstream.adaptive pakete dahildir, ayrıca kurulmaz.
 Kurulum ~155 MB yer kaplar. Kök bölümde yer azsa önce `df -h /` ile
 kontrol edin; indirilen paket `apt-get clean` ile silinebilir.
 
-**1.0-r9 (2026-10-02):** canlı yayında ve dosyada birkaç dakikada bir
+**1.0-r10 (2026-10-03):** canlı yayında ve dosyada birkaç dakikada bir
 gelen ~3 saniyelik takılmaların kök nedeni bulundu ve giderildi: besleme
 yolu çözücünün akış tamponunu tamamen dolduruyordu; tampon tam dolunca
 Amlogic HEVC çözücüsü hata kipine giriyor ("stream buffer is full / Over
@@ -278,7 +278,9 @@ bırakılır (ölçüm: HEVC canlı yayında 10 dk, H.264'te 33 dk takılma yok)
 Ayrıca: Kodi'den çıkışta kanal gelene kadar karıncalı görüntü yerine
 Dreambox açılış logosu; ilk kanalın birkaç saniye büyütülmüş açılması
 giderildi; her karede tekrarlayan bir sürücü hatasının günlük/journald
-yükü kaldırıldı.
+yükü kaldırıldı. r10: oynatma durunca ve Kodi'den çıkışta önceki
+videonun bozuk son karesi (yeşil karıncalı görüntü) artık kalmıyor,
+katman kararıyor.
 
 ## Paketler
 
@@ -301,8 +303,8 @@ yükü kaldırıldı.
 | `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
 | `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
-| `kodi21-hwdec` | 1.0-r9 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
-| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r9 | all | 5 KB | Kodi 21 icin menu girisi |
+| `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
+| `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
 
 ## Notlar
 
