@@ -353,7 +353,8 @@ hiçbir anahtar ya da kimlik bilgisi yoktur):
    normaldir: adres çubuğundaki adresin tamamını formun 3. adımına yapıştırın.
 
 Kimlik bilgileri yalnızca kutuda `/etc/enigma2/gdrive.json` (0600)
-dosyasında durur. Video, kutudaki yerel bir aracı (`127.0.0.1:8766`)
+dosyasında durur. Ayarlar'da **Sarı** ile çıkış yapınca Google'daki izin de
+geri alınır ve kutudaki belirteç silinir. Video, kutudaki yerel bir aracı (`127.0.0.1:8766`)
 üzerinden doğrudan Drive'dan akar; ek bir sunucu ya da hizmet kullanılmaz.
 
 ## Paketler
@@ -380,7 +381,7 @@ dosyasında durur. Video, kutudaki yerel bir aracı (`127.0.0.1:8766`)
 | `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
 | `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
 | `enigma2-plugin-systemplugins-subtitlestyle` | 1.6 | all | 238 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
-| `enigma2-plugin-extensions-gdrive` | 0.12 | all | 51 KB | Google Drive videolari (yalnizca okuma) |
+| `enigma2-plugin-extensions-gdrive` | 0.13 | all | 52 KB | Google Drive videolari (yalnizca okuma) |
 
 ## Notlar
 
