@@ -282,6 +282,72 @@ yükü kaldırıldı. r10: oynatma durunca ve Kodi'den çıkışta önceki
 videonun bozuk son karesi (yeşil karıncalı görüntü) artık kalmıyor,
 katman kararıyor.
 
+### Altyazı stili (SubtitleStyle)
+
+```sh
+apt-get install enigma2-plugin-systemplugins-subtitlestyle
+killall -9 enigma2
+```
+
+Eklentiler listesinde ve **Menü → Sistem** altında **Altyazı stili** belirir.
+
+**Dosya içindeki altyazılar (MKV vb.):** Bu altyazıları enigma2 değil
+GStreamer çizer ve kutuda uygun bir font olmadığı için Arapça bir fontun
+Latin harfleriyle ("Arial" gibi) görünürler; temanın altyazı ayarı onlara
+etki etmez. Eklenti kurulunca **Inter** (Netflix'in fontuna en yakın açık
+font) kullanılır; Roboto ve Open Sans da seçilebilir, boyut %70-%200
+arasında ayarlanır. Kutudaki **bütün oynatıcılarda** geçerlidir (film
+oynatıcı, IPTV eklentileri…). Bu ayarlar enigma2 yeniden başlayınca
+uygulanır; ekran kaydederken sorar. Rengi ve kenar çizgisi GStreamer'a
+aittir, değiştirilemez; enigma2'nin "siyah kutu / gölge" ve kutu
+saydamlığı ayarları da aynı ekrandadır.
+
+**Harici .srt altyazılar:** Bu çiziciyi kullanan eklentilerde font, boyut,
+stil (Netflix tarzı kontur, gölge, yarı saydam kutu), renk, konum ve
+zamanlama kaydırması canlı önizlemeyle ayarlanır.
+
+Kurulum `/etc/fonts/conf.d/60-subtitlestyle.conf` dosyasını ekler (paketle
+birlikte kaldırılır); seçim `/etc/enigma2/subtitlestyle-fontconfig.conf`
+dosyasında tutulur. Fontlar: Inter, Open Sans (SIL OFL 1.1), Roboto
+(Apache 2.0); yalnızca Latin ve Türkçe karakterler.
+
+### Google Drive (GDrive)
+
+```sh
+apt-get install enigma2-plugin-extensions-gdrive
+killall -9 enigma2
+```
+
+Google Drive'daki videoları (Drive'ım, Benimle paylaşılanlar, Paylaşılan
+Drive'lar, arama) enigma2'nin kendi oynatıcısında oynatır: sarma, kaldığı
+yerden devam, izlendi işareti, aynı adlı `.srt` altyazı (Altyazı stili
+eklentisiyle birlikte kurulur). Eklentiler listesinde **Google Drive**.
+
+**Yalnızca okur.** İzin yalnızca `drive.readonly`'dir; eklenti Drive'da
+hiçbir dosyayı yazamaz, silemez, değiştiremez. Kaldığı yer ve izlendi
+bilgisi kutuda (`/data/gdrive`) tutulur.
+
+**Kendi Google istemcinizi oluşturmanız gerekir** (bir kez, ~10 dk; pakette
+hiçbir anahtar ya da kimlik bilgisi yoktur):
+
+1. https://console.cloud.google.com adresinde yeni bir proje açın.
+2. *APIs & Services → Library*: **Google Drive API**'yi etkinleştirin.
+3. *OAuth consent screen*: User type **External**, uygulama adı ve
+   e-postanız yeterli; ardından **Publish app** ile durumu
+   **In production** yapın ("Testing"te kalırsa giriş 7 günde bir düşer).
+4. *Credentials → Create credentials → OAuth client ID*: tür **Desktop app**;
+   JSON dosyasını indirin.
+5. Kutuda Google Drive → **Google hesabına giriş**. Ekranda yazan adresi
+   (`http://<kutu-ip>:8790/`) aynı ağdaki telefon ya da bilgisayarda açın:
+   JSON'un içeriğini yapıştırıp kaydedin, **Google ile giriş yap**'a basın,
+   "doğrulanmamış uygulama" uyarısında *Gelişmiş → devam* deyin. Tarayıcı
+   sonunda `127.0.0.1:8765` adresine gidip "bağlanılamıyor" der; bu
+   normaldir: adres çubuğundaki adresin tamamını formun 3. adımına yapıştırın.
+
+Kimlik bilgileri yalnızca kutuda `/etc/enigma2/gdrive.json` (0600)
+dosyasında durur. Video, kutudaki yerel bir aracı (`127.0.0.1:8766`)
+üzerinden doğrudan Drive'dan akar; ek bir sunucu ya da hizmet kullanılmaz.
+
 ## Paketler
 
 | Paket | Sürüm | Mimari | Boyut | Açıklama |
@@ -305,6 +371,8 @@ katman kararıyor.
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
 | `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
 | `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
+| `enigma2-plugin-systemplugins-subtitlestyle` | 1.2 | all | 134 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
+| `enigma2-plugin-extensions-gdrive` | 0.11 | all | 51 KB | Google Drive videolari (yalnizca okuma) |
 
 ## Notlar
 
