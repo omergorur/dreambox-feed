@@ -291,25 +291,33 @@ killall -9 enigma2
 
 Eklentiler listesinde ve **Menü → Sistem** altında **Altyazı stili** belirir.
 
+**Font:** tek seçim, bütün altyazılara uygulanır. Arial'dan belirgin biçimde
+ayrışan modern fontlar: **DM Sans** (geometrik, Netflix'e yakın), **Figtree**,
+**Plus Jakarta Sans**, **Manrope**, **Poppins** (yuvarlak); ayrıca Inter,
+Roboto, Open Sans. Ayar ekranında Sol/Sağ ile gezdikçe alttaki örnek
+altyazı anında o fontla çizilir.
+
 **Dosya içindeki altyazılar (MKV vb.):** Bu altyazıları enigma2 değil
 GStreamer çizer ve kutuda uygun bir font olmadığı için Arapça bir fontun
 Latin harfleriyle ("Arial" gibi) görünürler; temanın altyazı ayarı onlara
-etki etmez. Eklenti kurulunca **Inter** (Netflix'in fontuna en yakın açık
-font) kullanılır; Roboto ve Open Sans da seçilebilir, boyut %70-%200
-arasında ayarlanır. Kutudaki **bütün oynatıcılarda** geçerlidir (film
-oynatıcı, IPTV eklentileri…). Bu ayarlar enigma2 yeniden başlayınca
-uygulanır; ekran kaydederken sorar. Rengi ve kenar çizgisi GStreamer'a
-aittir, değiştirilemez; enigma2'nin "siyah kutu / gölge" ve kutu
-saydamlığı ayarları da aynı ekrandadır.
+etki etmez. Eklenti seçtiğiniz fontu ve boyutu (%70-%200) bunlara da
+uygular; kutudaki **bütün oynatıcılarda** geçerlidir (film oynatıcı, IPTV
+eklentileri…). Font ve boyut enigma2 yeniden başlayınca uygulanır; ekran
+kaydederken sorar. Rengi ve kenar çizgisi GStreamer'a aittir; enigma2'nin
+"siyah kutu / gölge" ve kutu saydamlığı ayarları da aynı ekrandadır.
 
-**Harici .srt altyazılar:** Bu çiziciyi kullanan eklentilerde font, boyut,
-stil (Netflix tarzı kontur, gölge, yarı saydam kutu), renk, konum ve
-zamanlama kaydırması canlı önizlemeyle ayarlanır.
+**Harici .srt altyazılar:** Bu çiziciyi kullanan eklentilerde boyut, stil
+(Netflix tarzı kontur, gölge, yarı saydam kutu), renk, konum ve zamanlama
+kaydırması canlı önizlemeyle ayarlanır.
+
+**Oynatma çubuğu:** Destekleyen oynatıcılarda (GDrive) bilgi çubuğu
+açılınca altyazı çubuğun üstüne çıkar, kapanınca yerine döner.
 
 Kurulum `/etc/fonts/conf.d/60-subtitlestyle.conf` dosyasını ekler (paketle
 birlikte kaldırılır); seçim `/etc/enigma2/subtitlestyle-fontconfig.conf`
-dosyasında tutulur. Fontlar: Inter, Open Sans (SIL OFL 1.1), Roboto
-(Apache 2.0); yalnızca Latin ve Türkçe karakterler.
+dosyasında tutulur. Fontlar: DM Sans, Figtree, Plus Jakarta Sans, Manrope,
+Poppins, Inter, Open Sans (SIL OFL 1.1), Roboto (Apache 2.0); yalnızca
+Latin ve Türkçe karakterler.
 
 ### Google Drive (GDrive)
 
@@ -371,8 +379,8 @@ dosyasında durur. Video, kutudaki yerel bir aracı (`127.0.0.1:8766`)
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
 | `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
 | `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
-| `enigma2-plugin-systemplugins-subtitlestyle` | 1.2 | all | 134 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
-| `enigma2-plugin-extensions-gdrive` | 0.11 | all | 51 KB | Google Drive videolari (yalnizca okuma) |
+| `enigma2-plugin-systemplugins-subtitlestyle` | 1.6 | all | 238 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
+| `enigma2-plugin-extensions-gdrive` | 0.12 | all | 51 KB | Google Drive videolari (yalnizca okuma) |
 
 ## Notlar
 

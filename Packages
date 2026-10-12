@@ -440,7 +440,7 @@ SHA1: 1ddba4fb7cbc926231aba3a5fa8eda9fb2d40d6c
 SHA256: 6972f4b27d4baddb3cbe43b575d3b5de87c6ebe7aef01748521fb9ef8e5c0959
 
 Package: enigma2-plugin-systemplugins-subtitlestyle
-Version: 1.2
+Version: 1.6
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -451,14 +451,14 @@ Description: Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici)
  konum, zamanlama; canli onizleme) -- GDrive kullanir. Dosya icindeki (MKV)
  metin altyazilari icin fontconfig ile font ve boyut: kutudaki tum
  oynaticilarda gecerli. Inter, Roboto, Open Sans (OFL/Apache) alt kumeleri.
-Filename: ./enigma2-plugin-systemplugins-subtitlestyle_1.2_all.deb
-Size: 136828
-MD5sum: 7fff9ce400437206f9a6615b497a72ba
-SHA1: a9c3eb95fb3eaf31594448485e7f969b552e523a
-SHA256: 6d339a1930f664a7a8b8088cabf52f23d24a47fd95b63b34f758fe437fe3652a
+Filename: ./enigma2-plugin-systemplugins-subtitlestyle_1.6_all.deb
+Size: 243372
+MD5sum: 9a11fa1b664adf7a1ae0e03004d1e530
+SHA1: b4a9220dfaaed27a8a81afcfa6efda51dc6868c5
+SHA256: 171f80673f630954856e3c24665309220ee9f13df801a4105f39fe9b12def0d8
 
 Package: enigma2-plugin-extensions-gdrive
-Version: 0.11
+Version: 0.12
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -470,8 +470,8 @@ Description: Google Drive videolari (yalnizca okuma)
  ayni klasordeki .srt altyazi (SubtitleStyle cizer). Izin yalnizca drive.readonly: eklenti
  Drive'da hicbir seyi yazamaz, silemez, degistiremez. Giris telefondan,
  kutunun 8790 portundaki formla. Sistem dosyalarina dokunmaz.
-Filename: ./enigma2-plugin-extensions-gdrive_0.11_all.deb
-Size: 52394
-MD5sum: ede60c7ae802fce811b7369cd09338b9
-SHA1: ae7a7548e165904741e2ef83f8f7a21e6e584250
-SHA256: ce777ed1a85008b36993b3f5bef32df4d05ea74bc653cdfda1b59f59aadfa274
+Filename: ./enigma2-plugin-extensions-gdrive_0.12_all.deb
+Size: 52364
+MD5sum: be780851ceabfc17d863ad457d7be824
+SHA1: 1f4956849b3427017b494ca27468dcbd847cce7d
+SHA256: cdb048e840ed63903f113f41b7ad95fca5cdf6f516743b12281bf0eb70aae307
