@@ -112,7 +112,7 @@ SHA1: f0cfc6c84eaabad3c8068d78b7bd4d44a5d559da
 SHA256: be1a482bb4364c5e7a32b4e7770e2f67c05718df4085172078f13e5cfa9d49b5
 
 Package: enigma2-kilit-bekcisi
-Version: 1.0-r0
+Version: 1.1-r0
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: base
@@ -123,65 +123,15 @@ Description: enigma2 kilitlenme bekcisi
  birakirsa enigma2 donar, kumanda hicbir sey yapamaz. Bu bekci enigma2'nin
  ana is parcacigi 60 sn boyunca kilitte ve hic ilerlemeden kalirsa enigma2'yi
  kendiliginden yeniden baslatir (systemd). Kodi calisirken ve enigma2
- acildiktan sonraki ilk 3 dakika dokunmaz. Kayitlar: journalctl -u
- e2-kilit-bekcisi
-Filename: ./enigma2-kilit-bekcisi_1.0-r0_all.deb
-Size: 2254
-MD5sum: 0fcad3848cc99153b9abe3338885b2c3
-SHA1: 0931913296af091de34ad835e02c54b570613a8e
-SHA256: 103a701bc332b274f403ca31e748c15f7963a402d76d2659ff11e133f040848d
-
-Package: enigma2-plugin-systemplugins-threadguard
-Version: 1.1
-Architecture: all
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: enigma2
-Description: Eklentilerin arka plandan yaptigi GUI cagrilarini ana donguye devreder
- enigma2'de ekranlar ve zamanlayicilar yalnizca ana is parcacigindan
- kullanilabilir. Bazi eklentiler (orn. AJPanel, dizi kategorisi yuklerken
- sunucu hata verince) ekrani arka plan is parcacigindan kapatiyor; enigma2
- Python kilidinde (GIL) donuyor, kumanda cevap vermiyor. Bu eklenti
- Screen.close, eTimer.start/stop ve Session.open/instantiateDialog
- cagrilarini, ana is parcacigi disindan geldiklerinde ana donguye devreder
- (1.1: AJPanel'in arka plandan actigi hata kutusu "FATAL!: addTimer" ile
- yesil ekran veriyordu) ve cagiran yeri gunluge yazar
- (journalctl -u enigma2 | grep ThreadGuard). Sistem dosyalarina dokunmaz.
-Filename: ./enigma2-plugin-systemplugins-threadguard_1.1_all.deb
-Size: 3622
-MD5sum: a07009774db5504768965688a3fc0e9e
-SHA1: 34bea082dfd0428032f280f6de7972046df4141f
-SHA256: 713c9c996fa4e8cc8ec67de463fbf90b8151ee278fa415056d21c1541be63338
-
-Package: enigma2-plugin-systemplugins-portalretry
-Version: 1.3
-Architecture: all
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: enigma2
-Description: Stalker portal liste sayfalarini gecici hatada yeniden ister
- AJPanel gibi eklentiler bir dizi/film kategorisini sayfa sayfa ceker;
- sunucu tek bir sayfada zaman asimi, 5xx ya da bos cevap verirse butun
- liste "error while reading" ile yarida kalir. Bu eklenti yalnizca
- get_ordered_list isteklerini, yalnizca arka plan is parcacigindan
- gelenlerde, 1/2/4 sn bekleyerek en fazla 3 kez yeniden dener.
- Gercek IMDb puani: ogenin tmdb_id'si ile TMDB'den IMDb kimligi, IMDb'nin
- gunluk title.ratings dosyasindan puan alinir (sunucunun rating_imdb alani
- IMDb puani degil). Film/dizi listelerinde bos "Catch-up" sutununda, bolum
- sayfasinda sezon adinin yaninda gorunur. TMDB API anahtari kullanici
- tarafindan /etc/enigma2/portalretry-tmdb.key dosyasina konur; yoksa puan
- gosterilmez. Veri /data/portalretry altinda (~30 MB).
- AJPanel'deki "Catch-up" sutun basligi "IMDb" olarak degistirilir
- (calisma zamaninda; AJPanel dosyasina dokunulmaz).
- Bu urun TMDB API'sini kullanir ancak TMDB tarafindan onaylanmamistir.
- Gunluk: journalctl -u enigma2 | grep PortalRetry
-Filename: ./enigma2-plugin-systemplugins-portalretry_1.3_all.deb
-Size: 7142
-MD5sum: 7a5c0ff66b69d1f7892dd133bdad3882
-SHA1: 27769332ed7c0411ad2020ef3f43eea2eea434b8
-SHA256: 42010457d24026c826257cd23c0c3c3322025561dfc3054bf4caa8b1d57c7735
+ acildiktan sonraki ilk 3 dakika dokunmaz. 1.1: enigma2'nin bellegi
+ 1,2 GB'i 30 sn boyunca asarsa da yeniden baslatir (bellek tukenince
+ cekirdek sshd dahil her seyi olduruyor, kutu salter istiyordu).
+ Kayitlar: journalctl -u e2-kilit-bekcisi
+Filename: ./enigma2-kilit-bekcisi_1.1-r0_all.deb
+Size: 2706
+MD5sum: d169d74c0a3165120320907aca8ca264
+SHA1: d05b0dd6eb7f1a9403da5a84333aad8fd996c602
+SHA256: a50c7623b5b85a7b515b12086e9d5ee5974e4490f47f79d3e6ca690a6b762481
 
 Package: enigma2-plugin-extensions-eitextendeditems
 Version: 1.4
