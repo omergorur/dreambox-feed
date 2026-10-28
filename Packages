@@ -390,7 +390,7 @@ SHA1: 1ddba4fb7cbc926231aba3a5fa8eda9fb2d40d6c
 SHA256: 6972f4b27d4baddb3cbe43b575d3b5de87c6ebe7aef01748521fb9ef8e5c0959
 
 Package: enigma2-plugin-systemplugins-subtitlestyle
-Version: 1.6
+Version: 1.7
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -401,11 +401,11 @@ Description: Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici)
  konum, zamanlama; canli onizleme) -- GDrive kullanir. Dosya icindeki (MKV)
  metin altyazilari icin fontconfig ile font ve boyut: kutudaki tum
  oynaticilarda gecerli. Inter, Roboto, Open Sans (OFL/Apache) alt kumeleri.
-Filename: ./enigma2-plugin-systemplugins-subtitlestyle_1.6_all.deb
-Size: 243372
-MD5sum: 9a11fa1b664adf7a1ae0e03004d1e530
-SHA1: b4a9220dfaaed27a8a81afcfa6efda51dc6868c5
-SHA256: 171f80673f630954856e3c24665309220ee9f13df801a4105f39fe9b12def0d8
+Filename: ./enigma2-plugin-systemplugins-subtitlestyle_1.7_all.deb
+Size: 263620
+MD5sum: d536625a381768a21d838ccb815aed1f
+SHA1: ef57fe44d01583a4de9cdd1a0458e56de3a2af5f
+SHA256: 2371ad40ba9837aca83a7f28fdf52694fd4e1eb11ff2eafb2835335a50a37a0d
 
 Package: enigma2-plugin-extensions-gdrive
 Version: 0.19

@@ -335,7 +335,7 @@ geri alınır ve kutudaki belirteç silinir. Video, kutudaki yerel bir aracı (`
 | `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
 | `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
 | `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
-| `enigma2-plugin-systemplugins-subtitlestyle` | 1.6 | all | 238 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
+| `enigma2-plugin-systemplugins-subtitlestyle` | 1.7 | all | 257 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
 | `enigma2-plugin-extensions-gdrive` | 0.19 | all | 52 KB | Google Drive videolari (yalnizca okuma) |
 
 ## Notlar
