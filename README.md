@@ -319,14 +319,14 @@ geri alınır ve kutudaki belirteç silinir. Video, kutudaki yerel bir aracı (`
 | Paket | Sürüm | Mimari | Boyut | Açıklama |
 |---|---|---|---|---|
 | `transmission-daemon` | 4.1.3-3 | arm64 | 23.5 MB | Transmission BitTorrent daemon (statik derlenmis) |
-| `enigma2-plugin-extensions-transmission4` | 1.5 | all | 28 KB | Transmission 4.x icin enigma2 istemcisi |
+| `enigma2-plugin-extensions-transmission4` | 1.6 | all | 49 KB | Transmission 4.x icin enigma2 istemcisi |
 | `python-coherence` | 0.8.1+git0+f39fbd2bd0-r0.0+ssdpfix2 | arm64 | 468 KB | Python UPnP framework (SSDP dayaniklilik yamalari) |
 | `gstreamer1.0-plugins-good-souphttpsrc` | 1.10.4-r0.1+reconnect1 | arm64 | 23 KB | GStreamer souphttpsrc (HTTP kaynagi), yeniden baglanma yamali |
 | `enigma2-kilit-bekcisi` | 1.1-r0 | all | 3 KB | enigma2 kilitlenme bekcisi |
-| `enigma2-plugin-extensions-eitextendeditems` | 1.4 | all | 17 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
-| `enigma2-plugin-extensions-markernumbering` | 1.5 | all | 20 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
-| `enigma2-plugin-extensions-radiovideo` | 1.7 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
-| `enigma2-plugin-extensions-zapfollow` | 1.3 | all | 19 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
+| `enigma2-plugin-extensions-eitextendeditems` | 1.5 | all | 38 KB | EPG ek bilgileri (Actors / Directors / Production Year) |
+| `enigma2-plugin-extensions-markernumbering` | 1.6 | all | 41 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
+| `enigma2-plugin-extensions-radiovideo` | 1.8 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
+| `enigma2-plugin-extensions-zapfollow` | 1.4 | all | 39 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
 | `kodi-hwdec` | 1.0-r6 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
 | `enigma2-plugin-extensions-kodihwdec` | 1.0-r7 | all | 5 KB | Kodi 19 icin menu girisi |
 | `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
@@ -336,7 +336,7 @@ geri alınır ve kutudaki belirteç silinir. Video, kutudaki yerel bir aracı (`
 | `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
 | `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
 | `enigma2-plugin-systemplugins-subtitlestyle` | 1.7 | all | 257 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
-| `enigma2-plugin-extensions-gdrive` | 0.19 | all | 52 KB | Google Drive videolari (yalnizca okuma) |
+| `enigma2-plugin-extensions-gdrive` | 0.20 | all | 72 KB | Google Drive videolari (yalnizca okuma) |
 
 ## Notlar
 

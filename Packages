@@ -29,7 +29,7 @@ SHA1: bca7292f863015189c9b85b4a04560009d8a7b83
 SHA256: f4b559e4111837d85e34dfd9617a9f6372e8276b9576b3038ccf469314703eae
 
 Package: enigma2-plugin-extensions-transmission4
-Version: 1.5
+Version: 1.6
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -48,11 +48,11 @@ Description: Transmission 4.x icin enigma2 istemcisi
  .
  Tum ag istekleri twisted uzerinden yapilir; enigma2'nin ana dongusu hicbir
  zaman bloke olmaz.
-Filename: ./enigma2-plugin-extensions-transmission4_1.5_all.deb
-Size: 28762
-MD5sum: 3813c4f44ee03d276fc90c6f3b21f0ec
-SHA1: 70d0e70acee8e5796b3620943aa587704270a0e6
-SHA256: 957e0b8450aca837b8b19564a18919032c5d79be3a0a5cf54241931d28b0f6ce
+Filename: ./enigma2-plugin-extensions-transmission4_1.6_all.deb
+Size: 49864
+MD5sum: 4abb992099c30a982a17063aac96a287
+SHA1: c90dd619ec93182a73a0a6c6286d49b1d54cd3a3
+SHA256: a6c0903468363ed891dcd395c253b4287868369ea08470d630e26fe778593c04
 
 Package: python-coherence
 Multi-Arch: same
@@ -134,7 +134,7 @@ SHA1: d05b0dd6eb7f1a9403da5a84333aad8fd996c602
 SHA256: a50c7623b5b85a7b515b12086e9d5ee5974e4490f47f79d3e6ca690a6b762481
 
 Package: enigma2-plugin-extensions-eitextendeditems
-Version: 1.4
+Version: 1.5
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -146,14 +146,14 @@ Description: EPG ek bilgileri (Actors / Directors / Production Year)
  Country gibi alanlar EPG'de gorunmez. Bu eklenti EIT'i kendi section
  filtresiyle okuyup bu alanlari EPG ekranlarina ekler. Sistem dosyalarina
  dokunmaz; ilgili siniflari calisma zamaninda sarmalar.
-Filename: ./enigma2-plugin-extensions-eitextendeditems_1.4_all.deb
-Size: 17824
-MD5sum: c4f2638aa143b6e7be495b8c7c20db63
-SHA1: 07a7300266e818a46dfd6e67b00c9511448ca51e
-SHA256: 2ac47d5e350ab55f55fefb89c47fd6a2d38858132b21556526181cb55cc1db14
+Filename: ./enigma2-plugin-extensions-eitextendeditems_1.5_all.deb
+Size: 38726
+MD5sum: a4a3bdaa56ecee7b037fff84691c4d66
+SHA1: e86686d4a186c9eb31916b74755f689d46d765b9
+SHA256: 61750347015c2fc46c1cd654d081e48ecd0910e35f8d9f8cbd2f6fb9548a16f7
 
 Package: enigma2-plugin-extensions-markernumbering
-Version: 1.5
+Version: 1.6
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -168,14 +168,14 @@ Description: Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi)
  tutucu satirlari listede gizlenir. Ayrica DreamOS'ta hic bulunmayan "her
  bukede 1'den basla" secenegi eklenir.
  Sistem dosyalarina dokunmaz; ilgili siniflari calisma zamaninda sarmalar.
-Filename: ./enigma2-plugin-extensions-markernumbering_1.5_all.deb
-Size: 19980
-MD5sum: 79de8b6257439ff1b24e74dfeaf087cf
-SHA1: 74aac5c9ff30dc981d69e42aed2a943200a201c7
-SHA256: 98883708513bfc940a82fbec718ce32978136d8a5e0ec59c08dc7a227e08eccd
+Filename: ./enigma2-plugin-extensions-markernumbering_1.6_all.deb
+Size: 41992
+MD5sum: f501b162fd151e93931f335faea1f8ac
+SHA1: 88398914a9ba59bd741458cdd3c119b06b580971
+SHA256: ef434d74f19816388c715823299108a18b210ad7f69df4e7c263363a56368aae
 
 Package: enigma2-plugin-extensions-radiovideo
-Version: 1.7
+Version: 1.8
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -192,14 +192,14 @@ Description: Radyo kanallarinda sabit resim yerine video oynat
  audio-sink=fakesink
  Video bittiginde basa sarilir. Oynatilacak dosya veya klasor eklenti
  menusunden secilir; pakette varsayilan bir video gelir.
-Filename: ./enigma2-plugin-extensions-radiovideo_1.7_all.deb
-Size: 3937132
-MD5sum: 1159347d983f1961ff199c208eef6383
-SHA1: 821c1e6c8d01e4c692d00f320c905faa4a3441b7
-SHA256: d4c615d82f9e55b168238d5719ec337f00246d65a447fa3d031b204e44749785
+Filename: ./enigma2-plugin-extensions-radiovideo_1.8_all.deb
+Size: 3957474
+MD5sum: 5ba9afcae47b51112842ad3070191a9f
+SHA1: 7d9adaef7a5bf9185dc92f1d7f5989d6a37a03cf
+SHA256: a03942765e06d8d8c2625f34c668d31cdcd4dd9b4ec43c7e68d5fbe3a40caaca
 
 Package: enigma2-plugin-extensions-zapfollow
-Version: 1.3
+Version: 1.4
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -216,11 +216,11 @@ Description: Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin
  yeniden baglanilir -- izleyen kisi de otomatik olarak yeni kanala gecer.
  Sistem dosyalarina dokunmaz; Navigation.playService calisma zamaninda
  sarmalanir ve eklenti kapatilinca geri alinir.
-Filename: ./enigma2-plugin-extensions-zapfollow_1.3_all.deb
-Size: 19294
-MD5sum: 9e2bdf05a0fddfb135e4e50c732727a6
-SHA1: cb775ac78e78a8a58bbde5c99d1e009587f3a647
-SHA256: fca83a2c33fe3b33990d2899970cffc4246da3161a2acc7ad4cba2205267bf17
+Filename: ./enigma2-plugin-extensions-zapfollow_1.4_all.deb
+Size: 39864
+MD5sum: 9b7a3d6bcc95105ea7f785b8bb7663e8
+SHA1: b869c7747b68ca33f233c290607b54375a1c7ce6
+SHA256: 59d5031699f1d0e997888d6bafa44dd288f16f3ad280ba2b9d6f6731e89b11cb
 
 Package: kodi-hwdec
 Version: 1.0-r6
@@ -408,7 +408,7 @@ SHA1: ef57fe44d01583a4de9cdd1a0458e56de3a2af5f
 SHA256: 2371ad40ba9837aca83a7f28fdf52694fd4e1eb11ff2eafb2835335a50a37a0d
 
 Package: enigma2-plugin-extensions-gdrive
-Version: 0.19
+Version: 0.20
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -420,8 +420,8 @@ Description: Google Drive videolari (yalnizca okuma)
  ayni klasordeki .srt altyazi (SubtitleStyle cizer). Izin yalnizca drive.readonly: eklenti
  Drive'da hicbir seyi yazamaz, silemez, degistiremez. Giris telefondan,
  kutunun 8790 portundaki formla. Sistem dosyalarina dokunmaz.
-Filename: ./enigma2-plugin-extensions-gdrive_0.19_all.deb
-Size: 53678
-MD5sum: 7940efca5ddf158a9c2139eb09510eea
-SHA1: 6e8b41de087bd0de7bf42a78794e6b06583c5347
-SHA256: 84386ee4f5d275f17b198444b09f232c32cd4601c1571b343cc4c18aa7b5b1b3
+Filename: ./enigma2-plugin-extensions-gdrive_0.20_all.deb
+Size: 73246
+MD5sum: 25e6914b825d47e592d814caff692cb9
+SHA1: c3b8091db4d44bd885b9b3cc022a07ab9fb16b64
+SHA256: bfb48d3f37b4469ced9d72496d51ec213a62fa16d7b40d59bb635ac3006f0440
