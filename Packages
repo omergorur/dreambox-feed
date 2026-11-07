@@ -85,7 +85,7 @@ SHA1: d8a0f8ceae4bc1cc2f8fb597a9b413685bd45fac
 SHA256: 43fa2066e0aecc65cee60561a2ff94adae84d0b4c94563166c487df50d789d9e
 
 Package: gstreamer1.0-plugins-good-souphttpsrc
-Version: 1.10.4-r0.1+reconnect1
+Version: 1.10.4-r0.1+reconnect2
 Architecture: arm64
 Multi-Arch: same
 Maintainer: omergorur <omergorur@gmail.com>
@@ -103,23 +103,23 @@ Description: GStreamer souphttpsrc (HTTP kaynagi), yeniden baglanma yamali
     (Range) yapilir; tek kullanimlik hedef adres yeniden istenmez
   - veri alinmaya baslandiktan sonra gelen 5xx (509/503) kalici hata
     sayilmaz, 1/2/4 sn bekleyerek en fazla 5 kez yeniden denenir
- Stalker portal (AJPanel stb-emu) videolarinin 15-30 sn'de bir basa
+ Stalker portal (IPTV) videolarinin 15-30 sn'de bir basa
  sarmasini giderir. Geri donus: orijinal paketi yeniden kurun.
-Filename: ./gstreamer1.0-plugins-good-souphttpsrc_1.10.4-r0.1+reconnect1_arm64.deb
-Size: 24036
-MD5sum: cbec5b14f4d4ed75aaf1bffb876a34fa
-SHA1: f0cfc6c84eaabad3c8068d78b7bd4d44a5d559da
-SHA256: be1a482bb4364c5e7a32b4e7770e2f67c05718df4085172078f13e5cfa9d49b5
+Filename: ./gstreamer1.0-plugins-good-souphttpsrc_1.10.4-r0.1+reconnect2_arm64.deb
+Size: 24030
+MD5sum: 6b8e36c68f974fd69368e898c577c50d
+SHA1: b7e10955ac1f22a38d829b7aff2b8323f496404b
+SHA256: 8aba185ae3e00b8a07029b09224dad0749a4af9627e0a62a716aa5f09e04cc3c
 
 Package: enigma2-kilit-bekcisi
-Version: 1.1-r0
+Version: 1.1-r1
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: base
 Priority: optional
 Depends: enigma2
 Description: enigma2 kilitlenme bekcisi
- Bir eklenti (orn. AJPanel) enigma2'nin Python kilidini (GIL) kilitli
+ Bir eklenti enigma2'nin Python kilidini (GIL) kilitli
  birakirsa enigma2 donar, kumanda hicbir sey yapamaz. Bu bekci enigma2'nin
  ana is parcacigi 60 sn boyunca kilitte ve hic ilerlemeden kalirsa enigma2'yi
  kendiliginden yeniden baslatir (systemd). Kodi calisirken ve enigma2
@@ -127,11 +127,11 @@ Description: enigma2 kilitlenme bekcisi
  1,2 GB'i 30 sn boyunca asarsa da yeniden baslatir (bellek tukenince
  cekirdek sshd dahil her seyi olduruyor, kutu salter istiyordu).
  Kayitlar: journalctl -u e2-kilit-bekcisi
-Filename: ./enigma2-kilit-bekcisi_1.1-r0_all.deb
-Size: 2706
-MD5sum: d169d74c0a3165120320907aca8ca264
-SHA1: d05b0dd6eb7f1a9403da5a84333aad8fd996c602
-SHA256: a50c7623b5b85a7b515b12086e9d5ee5974e4490f47f79d3e6ca690a6b762481
+Filename: ./enigma2-kilit-bekcisi_1.1-r1_all.deb
+Size: 2694
+MD5sum: f5d1bb5b5142ee157adb7895bdfdff91
+SHA1: 2b06a3dc63d444b090167b88b87ce6eefa6ca590
+SHA256: 3dfd8e25c264464c97e415857f80e6d20265013f67bfbd141fd406d2baf4f1dc
 
 Package: enigma2-plugin-extensions-eitextendeditems
 Version: 1.5
@@ -223,7 +223,7 @@ SHA1: b869c7747b68ca33f233c290607b54375a1c7ce6
 SHA256: 59d5031699f1d0e997888d6bafa44dd288f16f3ad280ba2b9d6f6731e89b11cb
 
 Package: kodi21-hwdec
-Version: 1.0-r10
+Version: 1.0-r11
 Architecture: arm64
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -233,20 +233,19 @@ Description: Donanim video cozucu destekli Kodi 21
  Kodi 21.3 (CoreELEC tabanli). Video kutunun DVB donanim cozucusunde
  (/dev/dvb/adapter0/video0) cozulur: H.264, HEVC ve MPEG2, 4K50 dahil.
  .
- Tek basina kurulur; Kodi 19 paketi (kodi-hwdec) gerekmez. Ikisi birlikte
- kurulursa da karismazlar: /opt/kodi21-hwdec altina ve kendi veri dizinine
- (/data/kodi21-hwdec) kurulur. Menu girisi icin
+ /opt/kodi21-hwdec altina ve kendi veri dizinine (/data/kodi21-hwdec) kurulur;
+ baska bir Kodi kurulumuna dokunmaz. Menu girisi icin
  enigma2-plugin-extensions-kodi21hwdec paketini de kurun.
  .
  Tvheadend istemcisi (pvr.hts) pakete dahildir.
-Filename: ./kodi21-hwdec_1.0-r10_arm64.deb
-Size: 60238362
-MD5sum: e7abb15b0a5999ed4ebbdc55c122e5b7
-SHA1: 9f32e4964f51c731e1b0d400a36d528b588ea93a
-SHA256: 73096fd55c8d31b415dd22ea5a7058f60b6ed9b44acf178eb8c1298c6ddabce0
+Filename: ./kodi21-hwdec_1.0-r11_arm64.deb
+Size: 60238330
+MD5sum: 18d6fe737be9208952bc1560b7bbaa44
+SHA1: 815b5601f0813da9143caf4d34d0f14a9ac7a800
+SHA256: dd0f424565b1e29b3c258bbdb9589c15523b116d76eae399978407b4ea9eb1f1
 
 Package: enigma2-plugin-extensions-kodi21hwdec
-Version: 1.0-r10
+Version: 1.0-r11
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -257,11 +256,11 @@ Description: Kodi 21 icin menu girisi
  .
  Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
  durdurur ve ALSA HDMI aygitini birakir. Cikista hepsi geri alinir.
-Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r10_all.deb
+Filename: ./enigma2-plugin-extensions-kodi21hwdec_1.0-r11_all.deb
 Size: 5402
-MD5sum: d3357058e7950e69d63387a5b74e9cc8
-SHA1: 1ddba4fb7cbc926231aba3a5fa8eda9fb2d40d6c
-SHA256: 6972f4b27d4baddb3cbe43b575d3b5de87c6ebe7aef01748521fb9ef8e5c0959
+MD5sum: ac06e3dcbdcc49e5e0a3cc0c4cdc6887
+SHA1: 851ed0429f50d8136a3e83802efb36ac818c64e3
+SHA256: 843a763218a32db7b7ad577ee0f6dc24d56caa4ce00d7e85a0e8f00157f896d5
 
 Package: enigma2-plugin-systemplugins-subtitlestyle
 Version: 1.8
