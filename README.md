@@ -30,14 +30,14 @@ bırakmıyor.
   dokunmadan `/opt/gst124` altına kurulan güncel medya yığını (GLib 2.72,
   FFmpeg 6.1). enigma2 isteğe bağlı olarak bununla çalıştırılır; tek
   komutla geri alınır.
-- **GStreamer HTTP kaynağı:** AJPanel stb-emu gibi Stalker portal
-  eklentileriyle açılan videolar 15-30 saniyede bir başa sarıyordu.
+- **GStreamer HTTP kaynağı:** Stalker portal (IPTV) eklentileriyle açılan
+  videolar 15-30 saniyede bir başa sarıyordu.
   GStreamer 1.10'daki yeniden bağlanma hatası, aynı sürümden yamalanarak
   giderildi.
-- **Stalker portal istemcisi (StalkerTV):** AJPanel'in stb-emu ekranı
-  yerine film ve dizi için kendi istemcimiz: izlenen bölümler, kaldığı
-  yerden devam, sıradaki bölüm, gerçek IMDb puanı, portaldan bağımsız
-  izleme geçmişi. Bu paket davet üzerine ayrı bir depodan dağıtılır
+- **Stalker portal istemcisi (StalkerTV):** Film, dizi ve canlı TV için
+  kendi istemcimiz: izlenen bölümler, kaldığı yerden devam, sıradaki
+  bölüm, gerçek IMDb puanı, portaldan bağımsız izleme geçmişi, program
+  rehberi, indirmeler. Bu paket davet üzerine ayrı bir depodan dağıtılır
   (aşağıda).
 - **Kilitlenme bekçisi:** Bir eklenti enigma2'yi kilitler ya da belleği
   tüketirse bekçi enigma2'yi kendiliğinden yeniden başlatır.
@@ -93,7 +93,7 @@ apt-get update && apt-get install gstreamer1.0-plugins-good-souphttpsrc
 systemctl restart enigma2
 ```
 
-AJPanel stb-emu (Stalker portal) gibi eklentilerle açılan videoların
+Stalker portal (IPTV) eklentileriyle açılan videoların
 15-30 saniyede bir **başa sarmasını** giderir. Sunucu oynatılan videonun
 bağlantısını kısa aralıklarla kesiyor; kutudaki GStreamer 1.10 yeniden
 bağlanırken sunucunun tek kullanımlık yönlendirme adresini istiyor, hata
@@ -106,13 +106,7 @@ değişir. Geri dönmek için orijinal paket (`1.10.4-r0.1`) yeniden kurulabilir
 ### Stalker portal istemcisi (StalkerTV)
 
 StalkerTV bu depoda değildir; davetle verilen erişim anahtarıyla ayrı bir
-depodan kurulur (`dreambox-feed-private`). Depoda daha önce bulunan
-ThreadGuard ve PortalRetry (AJPanel yamaları) kaldırıldı; StalkerTV
-AJPanel'i kullanmadığı için onlara gerek kalmadı. Kutunuzda kuruluysa:
-
-```sh
-apt-get remove enigma2-plugin-systemplugins-threadguard enigma2-plugin-systemplugins-portalretry
-```
+depodan kurulur (`dreambox-feed-private`).
 
 ### enigma2 kilitlenme bekçisi
 
@@ -145,13 +139,6 @@ killall -9 enigma2
 Kodi'nin güncel kararlı sürümü (21.3 Omega). Menüde **Kodi 21** girişi
 belirir. `/opt/kodi21-hwdec` altına ve kendi veri dizinine
 (`/data/kodi21-hwdec`) kurulur; başka bir depodan kurulmuş Kodi'ye dokunmaz.
-
-Kodi 19 paketleri (`kodi-hwdec*`) depodan kaldırıldı; Kodi 21 onların
-yerini tutar. Kutunuzda kuruluysa:
-
-```sh
-apt-get remove kodi-hwdec kodi-hwdec-inputstream-adaptive kodi-hwdec-pvr-hts kodi-hwdec-pvr-iptvsimple kodi-hwdec-pvr-vuplus enigma2-plugin-extensions-kodihwdec
-```
 
 Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC ve MPEG2, 4K50
 dahil. Tvheadend, IPTV Simple, Enigma2 (Vu+) istemcileri ve
