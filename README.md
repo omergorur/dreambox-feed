@@ -26,8 +26,10 @@ bırakmıyor.
   4K50. Kutunun C++ kütüphanesi eski olduğu için Kodi, kendi
   kütüphanesini içine gömerek glibc 2.25'e göre derlendi. Tvheadend, IPTV
   Simple, Enigma2 istemcileri ve inputstream.adaptive pakete dahil.
-- **Kodi 19, donanım çözücülü:** Bu yolun ilk adımı. Kodi 21 ile yan yana
-  kurulabilir ama gerekli değil.
+- **GStreamer 1.24 (gst124):** Kutunun 2016 tarihli GStreamer 1.10'una
+  dokunmadan `/opt/gst124` altına kurulan güncel medya yığını (GLib 2.72,
+  FFmpeg 6.1). enigma2 isteğe bağlı olarak bununla çalıştırılır; tek
+  komutla geri alınır.
 - **GStreamer HTTP kaynağı:** AJPanel stb-emu gibi Stalker portal
   eklentileriyle açılan videolar 15-30 saniyede bir başa sarıyordu.
   GStreamer 1.10'daki yeniden bağlanma hatası, aynı sürümden yamalanarak
@@ -133,79 +135,6 @@ yapmaz. Ne yaptığını görmek için: `journalctl -u e2-kilit-bekcisi`
 Kilitlenmenin kendisini gidermez (hata eklentinin içinde); yalnızca
 kurtarmayı kendiliğinden yapar.
 
-### Kodi 19 (donanım çözücü destekli)
-
-```sh
-apt-get install kodi-hwdec enigma2-plugin-extensions-kodihwdec
-killall -9 enigma2
-```
-
-Menüde **Kodi 19** girişi belirir. DreamOS'un kendi Kodi'si
-yoktur; başka bir depodan kurulmuş bir Kodi varsa ona dokunulmaz. Bu paket
-`/opt/kodi-hwdec` altına kurulur, kendi veri dizinini kullanır ve onunla
-yan yana çalışabilir.
-
-Paket kendi kendine yeter: kutunun temel feed'inde bulunmayan dört kütüphane
-(`libinput`, `libevdev`, `mtdev`, `libtinyxml`) paketin içinde gelir ve
-yalnızca bu uygulamaya görünür — sistem kütüphanelerine dokunulmaz, başka bir
-depo eklemeniz gerekmez.
-
-Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC 10-bit ve HDR
-dahil 4K60'a kadar. İşlemci yükü yazılım çözmeye göre onda birine iner.
-**Deneysel: kare tabanlı çözücü.** `/etc/default/kodi-hwdec` içine
-`export KODI_AMCODEC=1` eklenirse H.264 video kare kare çözülür ve ekrana
-kare başına zamanlamayla basılır (50p'de daha akıcı; sarma ve durdurma
-çalışır). HEVC (4K) bu kipte her zaman DVB çözücüsüyle oynatılır. Kapatmak
-için satırı silin.
-
-Veri dizini varsayılan olarak `/data/kodi-hwdec`. Küçük resim önbelleği
-büyüyebilir; sabit diskiniz varsa `/etc/default/kodi-hwdec` içinden
-değiştirin:
-
-```sh
-KODI_HWDEC_DATA=/media/hdd/kodi-hwdec
-```
-
-#### Eklentiler
-
-Kodi'nin ikili eklentileri ayrı paketlerdir; yalnızca kullanacaklarınızı kurun:
-
-```sh
-apt-get install kodi-hwdec-inputstream-adaptive   # DASH / HLS akışları
-apt-get install kodi-hwdec-pvr-hts                # Tvheadend
-apt-get install kodi-hwdec-pvr-iptvsimple         # m3u + XMLTV
-apt-get install kodi-hwdec-pvr-vuplus             # enigma2 / Vu+ stream ucu
-```
-
-Bunlar `kodi-hwdec` ağacının içine kurulur ve kaynağından derlenmiştir;
-`libkodiplatform` gibi ek bir depo bağımlılığı getirmezler.
-
-`inputstream.adaptive` Widevine DRM korumalı servislerde (Netflix, Disney+
-vb.) **çalışmaz** — aarch64 için Widevine CDM yoktur. Şifresiz DASH/HLS
-akışlarında sorunsuzdur.
-
-#### Bilinen kusur
-
-**Ses ile görüntü arasında sabit bir kayma olabilir** (ölçülen: 0,2–0,5 sn),
-özellikle yayından kaydedilmiş TS dosyalarında ve canlı PVR'da. Kodi'nin
-`Ses` ayarlarındaki gecikme (A/V offset) ile elle telafi edilebilir.
-
-Sebebi ölçüldü: Kodi'nin Amlogic yolu normalde `/dev/video10` üzerinden
-donanımın çıkardığı **her kare için** bir bildirim alır ve zaman damgasını o
-karenin kendisinden okur. Bu kutuda o bildirim hiç gelmiyor — 801 kare
-beslendi, `VIDIOC_DQBUF` sıfır kare döndürdü; `amlvideo` görüntü zincirine
-eklendiğinde de sonuç değişmiyor. Bu yüzden gösterim zamanı örneklenerek
-tahmin ediliyor ve bu tahminin çözünürlüğü kadar kayma kalıyor. Üzerinde
-çalışılıyor.
-
-Kodi düzgün kapanamazsa (çökme, elektrik kesintisi) kutu bozuk video ayarları
-ile kalabilir — canlı yayın donar ya da görüntü ekranın dörtte birinde kalır.
-Tek komutla toparlanır:
-
-```sh
-kodi-hwdec-restore-av
-```
-
 ### Kodi 21 (donanım çözücü destekli)
 
 ```sh
@@ -214,10 +143,15 @@ killall -9 enigma2
 ```
 
 Kodi'nin güncel kararlı sürümü (21.3 Omega). Menüde **Kodi 21** girişi
-belirir. Tek başına kurulur; Kodi 19 paketi (`kodi-hwdec`)
-**gerekmez**. İkisini birlikte kurmak isterseniz de birbirine karışmazlar:
-Kodi 21 `/opt/kodi21-hwdec` altına ve kendi veri dizinine
-(`/data/kodi21-hwdec`) kurulur, ayarları ve eklentileri ayrıdır.
+belirir. `/opt/kodi21-hwdec` altına ve kendi veri dizinine
+(`/data/kodi21-hwdec`) kurulur; başka bir depodan kurulmuş Kodi'ye dokunmaz.
+
+Kodi 19 paketleri (`kodi-hwdec*`) depodan kaldırıldı; Kodi 21 onların
+yerini tutar. Kutunuzda kuruluysa:
+
+```sh
+apt-get remove kodi-hwdec kodi-hwdec-inputstream-adaptive kodi-hwdec-pvr-hts kodi-hwdec-pvr-iptvsimple kodi-hwdec-pvr-vuplus enigma2-plugin-extensions-kodihwdec
+```
 
 Video kutunun DVB donanım çözücüsünde çözülür: H.264, HEVC ve MPEG2, 4K50
 dahil. Tvheadend, IPTV Simple, Enigma2 (Vu+) istemcileri ve
@@ -263,6 +197,12 @@ eklentileri…). Font ve boyut enigma2 yeniden başlayınca uygulanır; ekran
 kaydederken sorar. Rengi ve kenar çizgisi GStreamer'a aittir; enigma2'nin
 "siyah kutu / gölge" ve kutu saydamlığı ayarları da aynı ekrandadır.
 
+**GStreamer 1.24 ile (1.8):** `gst124` etkinse dosya içindeki metin
+altyazılarını GStreamer değil bu eklenti çizer: seçtiğiniz font, boyut,
+kontur ve renk bunlara da anında uygulanır; duraklatma, devam ve sarmada
+altyazı kaybolmaz, `{\an8}` satırları üstte görünür. gst124 olmadan
+yukarıdaki eski yol sürer.
+
 **Harici .srt altyazılar:** Bu çiziciyi kullanan eklentilerde boyut, stil
 (Netflix tarzı kontur, gölge, yarı saydam kutu), renk, konum ve zamanlama
 kaydırması canlı önizlemeyle ayarlanır.
@@ -275,6 +215,41 @@ birlikte kaldırılır); seçim `/etc/enigma2/subtitlestyle-fontconfig.conf`
 dosyasında tutulur. Fontlar: DM Sans, Figtree, Plus Jakarta Sans, Manrope,
 Poppins, Inter, Open Sans (SIL OFL 1.1), Roboto (Apache 2.0); yalnızca
 Latin ve Türkçe karakterler.
+
+### GStreamer 1.24 (gst124)
+
+```sh
+apt-get install gst124-runtime
+/opt/gst124/bin/gst124-enigma2 enable
+systemctl restart enigma2
+```
+
+GLib 2.72, GStreamer 1.24.12 ve FFmpeg 6.1'i `/opt/gst124` altına kurar.
+Kutunun GStreamer 1.10'u ve sistem kütüphaneleri değişmez; kurmak tek
+başına bir şeyi değiştirmez. `enable` enigma2'ye bir systemd drop-in'i
+ekler, enigma2 yeniden başlayınca film oynatıcı, IPTV eklentileri ve
+medya oynatıcı yeni yığınla çalışır. Durum: `gst124-enigma2 status`.
+
+Geri almak için:
+
+```sh
+/opt/gst124/bin/gst124-enigma2 disable
+systemctl restart enigma2
+```
+
+Neler değişir (kutuda ölçüldü):
+
+- Güncel çözücü ve ayrıştırıcılar: HEVC/H.264 4K50, AV1, Opus, FLAC,
+  güncel Matroska/MP4, HLS ve DASH. 4K HEVC canlıda kare düşmez (50-53
+  kare/s, ses-görüntü farkı 1.10 ile aynı).
+- HTTP kaynağı kopmalarda kaldığı yerden yeniden bağlanır (yukarıdaki 1.10
+  yamasının 1.24 karşılığı).
+- Dosya içindeki altyazılar Altyazı stili (1.8) ile çizilir (yukarıda).
+- Dream'in kapalı kaynak video/ses sink'leri etkinleştirmede ayrı bir dizine
+  kopyalanır; sistem eklenti dizini karıştırılmaz.
+
+Bilinen eksik: GStreamer 1.24.12'de yeni HLS ayrıştırıcısı (`hlsdemux2`)
+yoktur; eski `hlsdemux` kullanılır.
 
 ### Google Drive (GDrive)
 
@@ -327,15 +302,10 @@ geri alınır ve kutudaki belirteç silinir. Video, kutudaki yerel bir aracı (`
 | `enigma2-plugin-extensions-markernumbering` | 1.6 | all | 41 KB | Adsiz markerlar kanal numarasi rezerve etsin (OpenATV davranisi) |
 | `enigma2-plugin-extensions-radiovideo` | 1.8 | all | 3.8 MB | Radyo kanallarinda sabit resim yerine video oynat |
 | `enigma2-plugin-extensions-zapfollow` | 1.4 | all | 39 KB | Agdan izlenen yayin kutudaki zap ile birlikte kanal degistirsin |
-| `kodi-hwdec` | 1.0-r6 | arm64 | 30.7 MB | Donanim video cozucu destekli Kodi 19 |
-| `enigma2-plugin-extensions-kodihwdec` | 1.0-r7 | all | 5 KB | Kodi 19 icin menu girisi |
-| `kodi-hwdec-inputstream-adaptive` | 2.3.22 | arm64 | 1.0 MB | DASH ve HLS akis cozucusu (inputstream.adaptive) |
-| `kodi-hwdec-pvr-hts` | 4.4.3 | arm64 | 261 KB | Tvheadend PVR istemcisi (pvr.hts) |
-| `kodi-hwdec-pvr-iptvsimple` | 3.5.5 | arm64 | 194 KB | m3u tabanli IPTV istemcisi (pvr.iptvsimple) |
-| `kodi-hwdec-pvr-vuplus` | 3.15.4 | arm64 | 355 KB | enigma2 / Vu+ PVR istemcisi (pvr.vuplus) |
 | `kodi21-hwdec` | 1.0-r10 | arm64 | 57.4 MB | Donanim video cozucu destekli Kodi 21 |
 | `enigma2-plugin-extensions-kodi21hwdec` | 1.0-r10 | all | 5 KB | Kodi 21 icin menu girisi |
-| `enigma2-plugin-systemplugins-subtitlestyle` | 1.7 | all | 257 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
+| `enigma2-plugin-systemplugins-subtitlestyle` | 1.8 | all | 260 KB | Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici) |
+| `gst124-runtime` | 1.24.12-13 | arm64 | 12.0 MB | GStreamer 1.24 + GLib 2.72 + FFmpeg 6.1 (/opt/gst124, sistemden ayri) |
 | `enigma2-plugin-extensions-gdrive` | 0.20 | all | 72 KB | Google Drive videolari (yalnizca okuma) |
 
 ## Notlar

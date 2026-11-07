@@ -222,132 +222,6 @@ MD5sum: 9b7a3d6bcc95105ea7f785b8bb7663e8
 SHA1: b869c7747b68ca33f233c290607b54375a1c7ce6
 SHA256: 59d5031699f1d0e997888d6bafa44dd288f16f3ad280ba2b9d6f6731e89b11cb
 
-Package: kodi-hwdec
-Version: 1.0-r6
-Architecture: arm64
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: libc6, libstdc++6, libgcc1, libasound2, bluez5, libdbus-1-3, libudev1, libuuid1, libpython2.7-1.0, libavcodec58, libavfilter7, libavformat58, libavutil56, libswscale5, libswresample3, libpostproc55, libass9, libcdio16, libiso9660-10, libexpat1, libcurl4, libfreetype6, libfribidi0, liblzo2-2, libssl1.0.2, libcrypto1.0.2, libpcrecpp0, libpcre1, libsqlite3-0, libtag1, libz1, meson-mali, libxkbcommon0, glibc-gconv-utf-32, glibc-gconv-utf-16, glibc-gconv-unicode, glibc-gconv-cp1252, glibc-gconv-iso8859-1, glibc-gconv-iso8859-9, glibc-gconv-cp1254
-Description: Donanim video cozucu destekli Kodi 19
- Kutunun DVB donanim cozucusunu (/dev/dvb/adapter0/video0) kullanan Kodi 19.
- H.264, HEVC 10-bit ve HDR dahil 4K60'a kadar donanimda cozer; islemci yuku
- yazilim cozmeye gore onda birine iner.
- .
- Kutunun kendi Kodi kurulumuna dokunmaz: /opt/kodi-hwdec altina kurulur ve
- yan yana calisir. Menu girisi icin
- enigma2-plugin-extensions-kodihwdec paketini de kurun.
- .
- Kodi'nin hazir donanim yollari bu kutuda calismaz -- v4l2m2m surucusu cozulen
- kareyi userspace'e hic vermez, amcodec ise beslenmez. Bu paket ureticinin
- kendi oynaticisinin kullandigi DVB cozucu yolunu kullanir.
- .
- Kendi kendine yeter: temel opendreambox feed'inde bulunmayan dort kutuphane
- (libinput, libevdev, mtdev, libtinyxml) ve XKB klavye verisi pakette
- tasinir; yalnizca bu uygulamaya gorunur. Ucuncu taraf bir depo gerekmez.
-Filename: ./kodi-hwdec_1.0-r6_arm64.deb
-Size: 32186854
-MD5sum: 17c0ae7bb7da10321a7a1408e7febe44
-SHA1: 06b27bc97c92a135245dc13a1f023b1bb2c43097
-SHA256: 60037b5825c373341e783948da8cd51dd75fc561e6967afc05a48090681805b5
-
-Package: enigma2-plugin-extensions-kodihwdec
-Version: 1.0-r7
-Architecture: all
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: enigma2, kodi-hwdec
-Description: Kodi 19 icin menu girisi
- Ana menuye ve eklenti menusune "Kodi 19" girisi ekler.
- .
- Kodi calisirken uzaktan kumandayi ve framebuffer'i kilitler, canli yayini
- durdurur ve ALSA HDMI aygitini birakir -- birakilmazsa Kodi hdmidmix
- aygitini acamaz ve ses cikmaz. Cikista hepsi geri alinir.
-Filename: ./enigma2-plugin-extensions-kodihwdec_1.0-r7_all.deb
-Size: 5410
-MD5sum: 35ee1a2c61d81301514572f93670e0b5
-SHA1: 676b0e4f4cb9b0b76defca344bbf9c6eb270759c
-SHA256: 603d89b6c072a44622738cb26b653c28e026a1046c12d5c6c84fadfa7b3a9947
-
-Package: kodi-hwdec-inputstream-adaptive
-Version: 2.3.22
-Architecture: arm64
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: kodi-hwdec, libexpat1
-Description: DASH ve HLS akis cozucusu (inputstream.adaptive)
- Uyarlanabilir bit hizli akislari (MPEG-DASH, HLS, Smooth Streaming)
- cozer. Cogu guncel video eklentisi bu olmadan calismaz.
- .
- Widevine DRM korumali servisler (Netflix, Disney+ vb.) bu kutuda
- calismaz: aarch64 icin Widevine CDM yok. Sifresiz DASH/HLS sorunsuz.
- .
- Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
- kurulumuna dokunmaz.
-Filename: ./kodi-hwdec-inputstream-adaptive_2.3.22_arm64.deb
-Size: 1099970
-MD5sum: 320cb029d575b7423cf06678ef424041
-SHA1: 45a23224579515b45ecd99bda47994931d475e43
-SHA256: 6629e625be2aecab26f64d51533c642d16c80d33253e9a61ade9ed16a4bd338e
-
-Package: kodi-hwdec-pvr-hts
-Version: 4.4.3
-Architecture: arm64
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: kodi-hwdec
-Description: Tvheadend PVR istemcisi (pvr.hts)
- Agdaki bir Tvheadend sunucusunun kanallarini, EPG'sini ve
- kayitlarini Kodi'ye getirir.
- .
- Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
- kurulumuna dokunmaz.
-Filename: ./kodi-hwdec-pvr-hts_4.4.3_arm64.deb
-Size: 266786
-MD5sum: 30bd6d6819d927c8d5613f90626ceeec
-SHA1: bfb503d605258e7ac2d275d19d62a42fb6891207
-SHA256: 919ecf5de48675eb27f5793e470d03ac3ee3ae146dcbe44fdf2c3d26496c47b7
-
-Package: kodi-hwdec-pvr-iptvsimple
-Version: 3.5.5
-Architecture: arm64
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: kodi-hwdec
-Description: m3u tabanli IPTV istemcisi (pvr.iptvsimple)
- m3u kanal listesi ve XMLTV EPG kaynagi ile IPTV izlemeyi saglar.
- .
- Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
- kurulumuna dokunmaz.
-Filename: ./kodi-hwdec-pvr-iptvsimple_3.5.5_arm64.deb
-Size: 198594
-MD5sum: 8feeaf01bc468f7f038133596f851293
-SHA1: 4fd6cb6d77b46cff168298d58e1bea12950284f0
-SHA256: a03c63c1f4ce0a3b767c72680145cc3dc332032347cd1753cea373094a62879e
-
-Package: kodi-hwdec-pvr-vuplus
-Version: 3.15.4
-Architecture: arm64
-Maintainer: omergorur <omergorur@gmail.com>
-Section: extra
-Priority: optional
-Depends: kodi-hwdec
-Description: enigma2 / Vu+ PVR istemcisi (pvr.vuplus)
- enigma2 tabanli bir kutunun (bu kutu dahil) web arayuzu ve stream
- uclarini kullanarak kanallari ve kayitlari Kodi'ye getirir.
- .
- Kaynagindan derlenip /opt/kodi-hwdec agacina kurulur; kutunun kendi Kodi
- kurulumuna dokunmaz.
-Filename: ./kodi-hwdec-pvr-vuplus_3.15.4_arm64.deb
-Size: 363606
-MD5sum: c479ea2fce1a8c7cf13d150ca85f9590
-SHA1: 7879eb13caf8d4439ef378499de18955d345fb1c
-SHA256: 8db44ab6759938300e84fc0b18b81361d5cf9dd4ba5c0882656c6750c3a3a8af
-
 Package: kodi21-hwdec
 Version: 1.0-r10
 Architecture: arm64
@@ -390,7 +264,7 @@ SHA1: 1ddba4fb7cbc926231aba3a5fa8eda9fb2d40d6c
 SHA256: 6972f4b27d4baddb3cbe43b575d3b5de87c6ebe7aef01748521fb9ef8e5c0959
 
 Package: enigma2-plugin-systemplugins-subtitlestyle
-Version: 1.7
+Version: 1.8
 Architecture: all
 Maintainer: omergorur <omergorur@gmail.com>
 Section: extra
@@ -401,11 +275,32 @@ Description: Altyazi stili: font, boyut, kontur (harici .srt ve dosya ici)
  konum, zamanlama; canli onizleme) -- GDrive kullanir. Dosya icindeki (MKV)
  metin altyazilari icin fontconfig ile font ve boyut: kutudaki tum
  oynaticilarda gecerli. Inter, Roboto, Open Sans (OFL/Apache) alt kumeleri.
-Filename: ./enigma2-plugin-systemplugins-subtitlestyle_1.7_all.deb
-Size: 263620
-MD5sum: d536625a381768a21d838ccb815aed1f
-SHA1: ef57fe44d01583a4de9cdd1a0458e56de3a2af5f
-SHA256: 2371ad40ba9837aca83a7f28fdf52694fd4e1eb11ff2eafb2835335a50a37a0d
+Filename: ./enigma2-plugin-systemplugins-subtitlestyle_1.8_all.deb
+Size: 266172
+MD5sum: abb1da18b32bc91cac5deed7f323d74e
+SHA1: 3a6e051375a7fdb167968d1334477bf74dad6eca
+SHA256: 7700d0f544254622a99fb3519d27584d037c1f72b01fee5e2f49172a9121c571
+
+Package: gst124-runtime
+Version: 1.24.12-13
+Architecture: arm64
+Maintainer: omergorur <omergorur@gmail.com>
+Section: extra
+Priority: optional
+Depends: libsoup-2.4
+Description: GStreamer 1.24 + GLib 2.72 + FFmpeg 6.1 (/opt/gst124, sistemden ayri)
+ Kutunun GStreamer 1.10'una dokunmadan /opt/gst124 altina kurulan guncel medya
+ yigini: core/base/good/bad/libav, HLS/DASH, souphttpsrc (sistem libsoup'u),
+ FFmpeg 6.1 cozuculeri. enigma2'yi bununla calistirmak icin:
+   gst124-enigma2 enable && systemctl restart enigma2
+ Geri almak icin: gst124-enigma2 disable && systemctl restart enigma2
+ Dream'in kapali kaynak video/ses sink'leri (dreamsinks) etkinlestirme
+ sirasinda ayri dizine kopyalanir; sistem eklenti dizini karistirilmaz.
+Filename: ./gst124-runtime_1.24.12-13_arm64.deb
+Size: 12576510
+MD5sum: dcfd2aa79e1c2a69f5a62ac1fb32dd21
+SHA1: 7d62f0b8932bde4b36d2b658ddf450426a2caecb
+SHA256: 9551858075a87e5521cce723d7bf657be4c937e5e8513fac420cec6f9bd1cea6
 
 Package: enigma2-plugin-extensions-gdrive
 Version: 0.20
